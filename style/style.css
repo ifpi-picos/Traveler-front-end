@@ -90,3 +90,62 @@
 .img-viagens{
     width: 70%;
 }
+@media only screen and (max-width:1000px){
+    .main-login{
+        flex-direction: column;
+    }
+    .img-viagens{
+        display: none;
+    }
+    .left-login{
+        font-size: 12px;
+    }
+   
+    .right-login{
+        width: 100%;
+    }
+    .card-login{
+
+        border-radius: 25px 25px 0px 0px; 
+    }
+    .textefild{
+        width: 100%;
+    }
+
+}
+@media only screen and (max-width:920px){
+   
+    .img-viagens{
+        display: inline-block;
+    }
+    .left-login{
+        font-size: 12px;
+    }
+   
+}
+@media only screen and (max-width:700px){
+   
+    .img-viagens{
+        display: none ;
+    }
+    .left-login{
+        font-size: 12px;
+    }
+   
+}
+@media only screen and (min-width:414px) {
+   
+    .img-viagens{
+        display: inline-block;
+    }
+   
+}
+@media only screen and (min-width:393px) {
+   
+    .img-viagens{
+        display: inline-block;
+    }
+   
+}
+
+
