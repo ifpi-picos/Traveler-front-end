@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.main-login{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:#3a88ff;
+}
+.left-login{
+    width: 80vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.left-login > h1{
+    color: #ffffff;
+}
+.right-login{
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-login{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px 35px;
+    background:#f4f3ee;
+    border-radius: 20px 0px 0px 20px;
+    box-shadow: 0px 10px 40px #00000056;
+}
+.card-login > h1{
+    color: #3a88ff;
+    font-weight: 800;
+    margin: 0;
+}
+.textefild{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 10px 0px;
+}
+
+.textefild > input{
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    background: #e6eff4;
+    color: #000000de;
+    font-size: 12pt;
+    box-shadow:0px 10px 40px #00000056 ;
+    outline: none;
+    box-sizing: border-box;
+}
+.textefild > label{
+    color: #000000de;
+    margin-bottom: 10px;
+}
+.textefild > input::placeholder{
+    color: #02020294;   
+}
+.btn-login{
+    width: 70%;
+    padding: 16px 0px;
+    margin: 25px;
+    border: none;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: #ffffff;
+    background: #3a88ff;
+    cursor: pointer; 
+}
+.img-viagens{
+    width: 70%;
+}
