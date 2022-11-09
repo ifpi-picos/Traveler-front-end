@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traveler</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file cdn link  -->
+    <link rel="stylesheet" href="/style/style.css">
+
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header class="header">
+
+    <a href="#" class="logo">  TRAVELER </a>
+
+    <form action="" class="search-form">
+        <input type="search" name="" placeholder="buscar" id="searchBox">
+        <label for="searchBox" class="fas fa-search"></label>
+    </form>
+
+    <div class="icons">
+        <div class="fas fa-search" id="search-btn"></div>
+        <div class="fas fa-moon" id="theme-btn"></div>
+        <div class="fas fa-user" id="login-btn"></div>
+        <div class="fas fa-bars" id="menu-btn"></div>
+    </div>
+
+    <nav class="navbar">
+        <a href="#home">inicio</a>
+        <a href="#packages">viagens</a>
+        <a href="#">ajuda</a>
+        <a href="#">sobre nós</a>
+    </nav>
+
+    <div class="login-form">
+        <a href="#">perfil</a>
+        <a href="/index.html">sair</a>
+    </div>
+
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+
+    <div class="image" data-aos="fade-down">
+        <img src="/img/car-travel.jpg" alt="">
+    </div>
+
+    <div class="content" data-aos="fade-up">
+        <h3>Descubra sua viagem no melhor lugar</h3>
+        <a href="#packages" class="btn">explorar</a>
+    </div>
+
+</section>
+
+<!-- home section ends -->
+
+<!-- filter form section starts  -->
+
+<section class="form-container" data-aos="zoom-in">
+
+    <form action="">
+
+        <div class="inputBox">
+            <span>para onde</span>
+            <input type="text" placeholder="procurar destino">
+        </div>
+
+        <div class="inputBox">
+            <span>quando</span>
+            <input type="date">
+        </div>
+
+        <input type="submit" value="buscar" class="btn">
+
+    </form>
+
+</section>
+
+<!-- filter form section ends -->
+
+<!-- packages section starts  -->
+
+<section class="packages" id="packages">
+
+    <h1 class="heading"> <span>viagens</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box" data-aos="fade-up">
+            <div class="image">
+                <img src="/img/Teresina.jpg" alt="">
+                <h3> <i class="fas fa-map-marker-alt"></i> teresina </h3>
+            </div>
+            <div class="content">
+                <div class="price"> R$100.00 </div>
+                <p>picos para teresina</p>
+                <a href="#" class="btn"> acessar</a>
+            </div>
+        </div>
+
+        <div class="box" data-aos="fade-up">
+            <div class="image">
+                <img src="/img/saoluis.jpg" alt="">
+                <h3> <i class="fas fa-map-marker-alt"></i> são luis-ma </h3>
+            </div>
+            <div class="content">
+                <div class="price"> R$100.00 </div>
+                <p>teresina para são luis</p>
+                <a href="#" class="btn"> acessar</a>
+            </div>
+        </div>
+
+        <div class="box" data-aos="fade-up">
+            <div class="image">
+                <img src="/img/parnaiba.jpg" alt="">
+                <h3> <i class="fas fa-map-marker-alt"></i> parnaiba-pi </h3>
+            </div>
+            <div class="content">
+                <div class="price"> R$100.00 </div>
+                <p>teresina para parnaiba</p>
+                <a href="#" class="btn"> acessar</a>
+            </div>
+        </div>
+
+        <div class="box" data-aos="fade-up">
+            <div class="image">
+                <img src="/img/floriano.jpg" alt="">
+                <h3> <i class="fas fa-map-marker-alt"></i> floriano-pi </h3>
+            </div>
+            <div class="content">
+                <div class="price"> R$100.00 </div>
+                <p>picos para floriano</p>
+                <a href="#" class="btn"> acessar</a>
+            </div>
+        </div>
+
+        <div class="box" data-aos="fade-up">
+            <div class="image">
+                <img src="/img/inhuma.jpg" alt="">
+                <h3> <i class="fas fa-map-marker-alt"></i> inhuma-pi </h3>
+            </div>
+            <div class="content">
+                <div class="price"> R$100.00  </div>
+                <p>picos para inhuma</p>
+                <a href="#" class="btn"> acessar</a>
+            </div>
+        </div>
+
+        <div class="box" data-aos="fade-up">
+            <div class="image">
+                <img src="/img/valença-pi.jpg" alt="">
+                <h3> <i class="fas fa-map-marker-alt"></i> valença-pi </h3>
+            </div>
+            <div class="content">
+                <div class="price"> R$100.00  </div>
+                <p>Picos para valença</p>
+                <a href="#" class="btn"> acessar</a>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- packages section ends -->
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box" data-aos="fade-up">
+            <h3>links rápidos</h3>
+            <a href="#home"> <i class="fas fa-chevron-right"></i> inicio </a>
+            <a href="#packages"> <i class="fas fa-chevron-right"></i> viagens </a>
+            <a href="#"> <i class="fas fa-chevron-right"></i> perfil </a>
+        </div>
+
+        <div class="box" data-aos="fade-up">
+            <h3>Sobre</h3>
+            <a href=""><i class="fas fa-chevron-right"></i> Nossa equipe</a>
+            <a href=""><i class="fas fa-chevron-right"></i> ajuda</a>
+        </div>
+
+ 
+
+    </div>
+
+    <div class="credit"> created by <span>Traveler</span> | all rights reserved </div>
+
+</section>
+
+<!-- footer section ends -->
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+
+<!-- custom js file link  -->
+<script src="/javaScript/homepage.js"></script>
+
+<script>
+
+AOS.init({
+    duration:350,
+    delay:200
+});
+
+</script>
+
+</body>
+</html>
