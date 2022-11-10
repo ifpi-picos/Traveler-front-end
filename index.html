@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/style.css">
+    <script src="/JavaScript/login.js" defer></script>
+
     <title>Traveler</title>
 </head>
 <body>
@@ -16,17 +18,14 @@
      <div class="right-login">
         <div class="card-login">
             <h1>TRAVELER</h1>
+
             <div class="textefild">
-                <label for="usuario">usuario</label>
-                <input type="text" name="usuario" placeholder="usuario">
+                <label  id="labelnomelogin" for="E-mail">E-mail</label>
+                <input  id="nomelgin" type="text" name="E-mail" placeholder="E-mail">
             </div>
             <div class="textefild">
-                <label for="E-mail">E-mail</label>
-                <input type="text" name="E-mail" placeholder="E-mail">
-            </div>
-            <div class="textefild">
-                <label for="usuario">Senha</label>
-                <input type="password" name="senha" placeholder="senha">
+                <label id="labelsenhalogin" for="usuario">Senha</label>
+                <input id="senhalogin" type="password" name="senha" placeholder="senha">
             </div>
             <a href="./pages/homepage.html" class="btn-login">ENTRAR</a>
             <p>Não possui conta? cadastre-se<a href="pages/cadastro.html"> aqui</a></p>
