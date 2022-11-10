@@ -5,9 +5,9 @@ let labelsenhalogin = document.querySelector("#labelsenhalogin")
 let senhalogin = document.querySelector("#senhalogin")
 
 nomelgin.addEventListener('keyup', ()=>{
-    if(nomelgin.value.length <= 2){
+    if(nomelgin.value.length <= 3){
         labelnomelogin.setAttribute('style','color: red')
-        labelnomelogin.innerHTML = 'Nome * no minimo 3 caracteres'
+        labelnomelogin.innerHTML = 'Nome * no minimo 4 caracteres'
         nomelgin.setAttribute('style','color: red')
      } else {
          labelnomelogin.setAttribute('style','color: green')

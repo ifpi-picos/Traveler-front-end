@@ -16,19 +16,20 @@ let labelConfirmarSenha = document.querySelector('#labelConfirmarSenha')
 console.log(nome)
 
     nome.addEventListener('keyup', ()=>{
-           if(nome.value.length <= 2){
+           if(nome.value.length <= 3){
                labelNome.setAttribute('style','color: red')
-               labelNome.innerHTML = 'Nome * no minimo 3 caracteres'
+               labelNome.innerHTML = 'Nome * no minimo 4 caracteres'
                nome.setAttribute('style','color: red')
             } else {
                 labelNome.setAttribute('style','color: green')
-                labelNome.innerHTML = 'Nome'
+                labelNome.innerHTML = 'Nome'    
                 nome.setAttribute('style','color: green')
             }
         })
         email.addEventListener('keyup', ()=>{
-            if(email.value.length <= 2){
+            if(email.value.length <= 5){
                 labelEmail.setAttribute('style','color: red')
+                labelEmail.innerHTML = 'E-Mail * no minimo 6 caracteres'
                 nome.setAttribute('style','color: red')
              } else {
                 labelEmail.setAttribute('style','color: green')
@@ -49,7 +50,7 @@ console.log(nome)
          confirmarSenha.addEventListener('keyup', ()=>{
             if(senha.value != confirmarSenha.value){
                 labelConfirmarSenha.setAttribute('style','color: red')
-                labelConfirmarSenha.innerHTML = 'erro nas senhas'
+                labelConfirmarSenha.innerHTML = 'Senhas incorretas'
                 nome.setAttribute('style','color: red')
              } else {
                 labelConfirmarSenha.setAttribute('style','color: green')
