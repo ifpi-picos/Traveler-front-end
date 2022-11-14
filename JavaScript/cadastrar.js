@@ -12,7 +12,6 @@ let confirmarSenha = document.querySelector('#confirmarSenha')
 let labelConfirmarSenha = document.querySelector('#labelConfirmarSenha')
 
 
-
 console.log(nome)
 
     nome.addEventListener('keyup', ()=>{
@@ -61,6 +60,29 @@ console.log(nome)
 
          
     
-function cadastrar(){
-    console.log("foi")
-}
+// async function cadastrar(){
+//     console.log("foi")
+//     try {
+//         const user = {
+//             name: nome.value,
+//             email: email.value,
+//             password: senha.value
+//         }
+//         const resp = await fetch('https://traveler-yd39.onrender.com/users/cadastro', {
+//             method: 'POST',
+//             headers: {
+//                 Accept: 'application/json',
+//                 'Content-type': 'application/json'
+//             },
+//             body: JSON.stringify(user)
+//         })
+//         if (resp.status === 201) {
+//             console.log('certo')
+//         } else {
+//             console.log('erro');
+//         }
+//     } catch (error) {
+//         console.error(error.message)
+//     }
+// }
+
