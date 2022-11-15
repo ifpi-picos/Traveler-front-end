@@ -16,9 +16,9 @@ nomelgin.addEventListener('keyup', ()=>{
      }
  })
  senhalogin.addEventListener('keyup', ()=>{
-    if(senhalogin.value.length <= 5){
+    if(senhalogin.value.length <= 7){
         labelsenhalogin.setAttribute('style','color: red')
-        labelsenhalogin.innerHTML = 'Senha * no minimo 6 caracteres'
+        labelsenhalogin.innerHTML = 'Senha * no minimo 8 caracteres'
         senhalogin.setAttribute('style','color: red')
      } else {
         labelsenhalogin.setAttribute('style','color: green')
