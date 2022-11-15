@@ -36,9 +36,9 @@ console.log(nome)
              }
          })
          senha.addEventListener('keyup', ()=>{
-            if(senha.value.length <= 5){
+            if(senha.value.length <= 7){
                 labelSenha.setAttribute('style','color: red')
-                labelSenha.innerHTML = 'Senha * no minimo 6 caracteres'
+                labelSenha.innerHTML = 'Senha * no minimo 8 caracteres'
                 nome.setAttribute('style','color: red')
              } else {
                 labelSenha.setAttribute('style','color: green')
