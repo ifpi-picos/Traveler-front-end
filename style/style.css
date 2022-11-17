@@ -97,6 +97,12 @@
     cursor: pointer;
     text-align: center; 
 }
+.btn-login.error{
+    background: red;
+}
+.btn-login.success{
+    background: green;
+}
 .img-viagens{
     width: 70%;
 }

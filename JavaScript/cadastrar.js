@@ -1,88 +1,95 @@
-console.log("adas")
-let nome = document.querySelector('#nome')
-let labelNome = document.querySelector('#labelNome')
-let email = document.querySelector('#email')
+let nome = document.querySelector("#nome");
+let labelNome = document.querySelector("#labelNome");
 
-let labelEmail = document.querySelector('#labelUsuario')
+let email = document.querySelector("#email");
+let labelEmail = document.querySelector("#labelUsuario");
 
-let senha = document.querySelector('#senha')
-let labelSenha = document.querySelector('#labelSenha')
+let senha = document.querySelector("#senha");
+let labelSenha = document.querySelector("#labelSenha");
 
-let confirmarSenha = document.querySelector('#confirmarSenha')
-let labelConfirmarSenha = document.querySelector('#labelConfirmarSenha')
+let confirmarSenha = document.querySelector("#confirmarSenha");
+let labelConfirmarSenha = document.querySelector("#labelConfirmarSenha");
 
+nome.addEventListener("keyup", () => {
+  if (validateUser(nome.value) !== true) {
+    labelNome.setAttribute("style", "color: red");
+  } else {
+    labelNome.setAttribute("style", "color: green");
+  }
+});
+email.addEventListener("keyup", () => {
+  if (validateEmail(email.value) !== true) {
+    labelEmail.setAttribute("style", "color: red");
+  } else {
+    labelEmail.setAttribute("style", "color: green");
+  }
+});
+senha.addEventListener("keyup", () => {
+  if (validatePassword(senha.value) !== true) {
+    labelSenha.setAttribute("style", "color: red");
+  } else {
+    labelSenha.setAttribute("style", "color: green");
+  }
+});
+confirmarSenha.addEventListener("keyup", () => {
+  if (
+    validatePassword(confirmarSenha.value) === validatePassword(senha.value)
+  ) {
+    labelConfirmarSenha.setAttribute("style", "color: green");
+  } else {
+    labelConfirmarSenha.setAttribute("style", "color: red");
+  }
+});
+function validateEmail(email) {
+  let valemail = /^[\w-\.]+@([\w-]+\.)+[\w-]{3,3}$/g;
 
-console.log(nome)
+  return valemail.test(email);
+}
+function validatePassword(Password) {
+  let valpass =
+    /(?=^.{8,}$)((?=.*\d)(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/g;
 
-    nome.addEventListener('keyup', ()=>{
-           if(nome.value.length <= 3){
-               labelNome.setAttribute('style','color: red')
-               labelNome.innerHTML = 'Nome * no minimo 4 caracteres'
-               nome.setAttribute('style','color: red')
-            } else {
-                labelNome.setAttribute('style','color: green')
-                labelNome.innerHTML = 'Nome'    
-                nome.setAttribute('style','color: green')
-            }
-        })
-        email.addEventListener('keyup', ()=>{
-            if(email.value.length <= 5){
-                labelEmail.setAttribute('style','color: red')
-                labelEmail.innerHTML = 'E-Mail * no minimo 6 caracteres'
-                nome.setAttribute('style','color: red')
-             } else {
-                labelEmail.setAttribute('style','color: green')
-                labelEmail.innerHTML = 'E-mail' 
-             }
-         })
-         senha.addEventListener('keyup', ()=>{
-            if(senha.value.length <= 7){
-                labelSenha.setAttribute('style','color: red')
-                labelSenha.innerHTML = 'Senha * no minimo 8 caracteres'
-                nome.setAttribute('style','color: red')
-             } else {
-                labelSenha.setAttribute('style','color: green')
-                labelSenha.innerHTML = 'Senha'
-                 senha.setAttribute('style','color: green')
-             }
-         })
-         confirmarSenha.addEventListener('keyup', ()=>{
-            if(senha.value != confirmarSenha.value){
-                labelConfirmarSenha.setAttribute('style','color: red')
-                labelConfirmarSenha.innerHTML = 'Senhas incorretas'
-                nome.setAttribute('style','color: red')
-             } else {
-                labelConfirmarSenha.setAttribute('style','color: green')
-                labelConfirmarSenha.innerHTML = 'confirmar senha'
-                confirmarSenha.setAttribute('style','color: green')
-             }
-         })
+  return valpass.test(Password);
+}
+function validateUser(User) {
+  let valuser = /^[a-zA-Z0-9]([._-](?![._-])|[a-zA-Z0-9]){3,8}[a-zA-Z0-9]$/g;
 
-         
-    
-// async function cadastrar(){
-//     console.log("foi")
-//     try {
-//         const user = {
-//             name: nome.value,
-//             email: email.value,
-//             password: senha.value
-//         }
-//         const resp = await fetch('https://traveler-yd39.onrender.com/users/cadastro', {
-//             method: 'POST',
-//             headers: {
-//                 Accept: 'application/json',
-//                 'Content-type': 'application/json'
-//             },
-//             body: JSON.stringify(user)
-//         })
-//         if (resp.status === 201) {
-//             console.log('certo')
-//         } else {
-//             console.log('erro');
-//         }
-//     } catch (error) {
-//         console.error(error.message)
-//     }
-// }
+  return valuser.test(User);
+}
 
+async function cadastrar() {
+  try {
+    const user = {
+      name: nome.value,
+      email: email.value,
+      password: senha.value,
+    };
+    const resp = await fetch(
+      "https://traveler-yd39.onrender.com/users/cadastro",
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(user),
+      }
+    );
+    if (resp.status === 201) {
+      console.log("certo");
+      limparCampos();
+      window.location.href = "/index.html";
+    } else {
+      console.log("erro");
+      limparCampos();
+    }
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+function limparCampos() {
+  document.querySelector("#nome").value = "";
+  document.querySelector("#email").value = "";
+  document.querySelector("#senha").value = "";
+  document.querySelector("#confirmarSenha").value = "";
+}
