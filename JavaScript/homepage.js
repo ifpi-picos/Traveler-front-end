@@ -1,6 +1,8 @@
-const divAnnouncement = document.querySelector('#announcement')
-
-
+//pegar e filtrar anuncios (integraçao)
+const divAnnouncement = document.querySelector('#announcement');
+// const filterDate = document.querySelector('#filterDate');
+// const filterEndRoute = document.querySelector('#filterEndRoute');
+// const filterStartRoute = document.querySelector('#filterStartRoute');
 
 async function getAnnouncements() {
     const response = await fetch('https://traveler-yd39.onrender.com/announcement');
@@ -14,6 +16,7 @@ async function getAnnouncements() {
 }
 
 function fillScreen(announcements) {
+    // divAnnouncement.innerHTML = '';
     announcements.forEach(announcement => {
         const newAnnouncementHtml = `
             <div class="box" data-aos="fade-up">
@@ -33,6 +36,39 @@ function fillScreen(announcements) {
 }
 
 getAnnouncements();
+
+// function filterAnnouncement() {
+//     try {
+//         const filterAnnouncement = {
+//             date: filterDate,
+//             endRoute: filterEndRoute,
+//             startRoute: filterStartRoute,
+//         }
+//         const response = await fetch(
+//             'https://traveler-yd39.onrender.com/announcement/filter',
+//             {
+//                 method: "POST",
+//                 headers: {
+//                     Accept: "application/json",
+//                     "Content-type": "application/json",
+//                 },
+//             body: JSON.stringify(filterAnnouncement),
+//             }
+//         );
+//         const announcements = await response.json();
+//         if (response.status === 200){
+//             console.log(announcements);
+//             fillScreen(announcements);
+//         } else {
+//             console.log(announcements.message);
+//         }
+//     }
+//     } catch (error) {
+//         console.error(error.message);
+//     }
+    
+
+//pegar e filtrar anuncios (integraçao) - fim
 
 let navbar = document.querySelector('.navbar')
 
