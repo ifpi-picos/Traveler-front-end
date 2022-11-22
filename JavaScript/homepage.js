@@ -1,3 +1,5 @@
+// Link da API online = https://traveler-yd39.onrender.com
+
 //pegar e filtrar anuncios (integraçao)
 const divAnnouncement = document.querySelector('#announcement');
 const filterDate = document.querySelector('#filterDate');
@@ -35,39 +37,37 @@ function fillScreen(announcements) {
     });
 }
 
-// https://traveler-yd39.onrender.com/announcement/filter
-// async function filterAnnouncement() {
-//     try {
-//         const filterAnnouncement = {
-//             date: filterDate.value,
-//             endRoute: filterEndRoute.value,
-//             // startRoute: filterStartRoute,
-//         }
-//         const response = await fetch('https://traveler-yd39.onrender.com/announcement/filter',
-//             {
-//                 method: "POST",
-//                 headers: {
-//                     Accept: "application/json",
-//                     "Content-type": "application/json",
-//                 },
-//             body: JSON.stringify(filterAnnouncement),
-//             }
+//pegar e filtrar anuncios (integraçao)
+async function filterAnnouncement() {
+    try {
+        const filterAnnouncement = {
+            date: filterDate.value,
+            endRoute: filterEndRoute.value,
+            // startRoute: filterStartRoute,
+        }
+        const response = await fetch('http://localhost:3003/announcement/filter',
+            {
+                method: "POST",
+                headers: {
+                    Accept: "application/json",
+                    "Content-type": "application/json",
+                },
+            body: JSON.stringify(filterAnnouncement),
+            }
             
-//         );
-//         const announcements = await response.json();
+        );
+        const announcements = await response.json();
 
-//         if (response.status === 200){
-//             console.log(announcements);
-//             fillScreen(announcements);
-//         } else {
-//             console.log(announcements.message);
-//         }
-//     } catch (error) {
-//         console.error(error.message);
-//     }
-// }
+        if (response.status === 200){
+            fillScreen(announcements);
+        } else {
+            console.log(announcements);
+        }
+    } catch (error) {
+        console.error(error.message);
+    }
+}
     
-
 //pegar e filtrar anuncios (integraçao) - fim
 
 let navbar = document.querySelector('.navbar')
