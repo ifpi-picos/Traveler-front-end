@@ -45,7 +45,7 @@ async function filterAnnouncement() {
             endRoute: filterEndRoute.value,
             // startRoute: filterStartRoute,
         }
-        const response = await fetch('http://localhost:3003/announcement/filter',
+        const response = await fetch('https://traveler-yd39.onrender.com/announcement/filter',
             {
                 method: "POST",
                 headers: {
