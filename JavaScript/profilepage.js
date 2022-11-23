@@ -44,14 +44,14 @@ themeBtn.onclick = () =>{
 
 
 
-const tabBtn = document.querySelectorAll(".tab");
-const tab = document.querySelectorAll(".tabShow");
+// const tabBtn = document.querySelectorAll(".tab");
+// const tab = document.querySelectorAll(".tabShow");
 
 
-function tabs(panelIndex) {
-    tab.forEach(function(node) {
-        node.getElementsByClassName.display = "none";
-    });
-    tab[panelIndex].getElementsByClassName.display = "block";
-}
-tabs(0);
+// function tabs(panelIndex) {
+//     tab.forEach(function(node) {
+//         node.getElementsByClassName.display = "none";
+//     });
+//     tab[panelIndex].getElementsByClassName.display = "block";
+// }
+// tabs(0);

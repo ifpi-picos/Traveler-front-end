@@ -43,7 +43,7 @@ async function filterAnnouncement() {
         const filterAnnouncement = {
             date: filterDate.value,
             endRoute: filterEndRoute.value,
-            // startRoute: filterStartRoute,
+            //startRoute: filterStartRoute,
         }
         const response = await fetch('https://traveler-yd39.onrender.com/announcement/filter',
             {

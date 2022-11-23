@@ -50,7 +50,7 @@ EmailLogin.addEventListener("keyup", () => {
     if(submitBuutton){
             submitBuutton.addEventListener("click",async (event)=>{
                 submitBuutton.textContent = "...Loading"
-                event.preventDefault()
+                // event.preventDefault()
                
                 await fetch("https://traveler-yd39.onrender.com/authentication/login",{
                     method: 'POST',
@@ -61,6 +61,7 @@ EmailLogin.addEventListener("keyup", () => {
                         email: inputEmail.value,
                         password:senhalogin.value
                     })
+                    
                 }).then((response) => {
                     if(response.status!== 201){
                         console.log(response)
