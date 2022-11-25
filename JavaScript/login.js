@@ -51,11 +51,12 @@ EmailLogin.addEventListener("keyup", () => {
             submitBuutton.addEventListener("click",async (event)=>{
                 submitBuutton.textContent = "...Loading"
                 // event.preventDefault()
-               
+
                 await fetch("https://traveler-yd39.onrender.com/authentication/login",{
                     method: 'POST',
                     headers: {
-                        'content-Type':'application/json'
+                        "content-Type":"application/json",
+                        Accept: "application/json",
                     },
                     body: JSON.stringify({
                         email: inputEmail.value,
