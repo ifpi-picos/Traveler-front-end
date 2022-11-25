@@ -4,7 +4,7 @@
 const divAnnouncement = document.querySelector('#announcement');
 const filterDate = document.querySelector('#filterDate');
 const filterEndRoute = document.querySelector('#filterEndRoute');
-// const filterStartRoute = document.querySelector('#filterStartRoute');
+const filterStartRoute = document.querySelector('#filterStartRoute');
 
 async function getAnnouncements() {
     const response = await fetch('https://traveler-yd39.onrender.com/announcement');
@@ -43,7 +43,7 @@ async function filterAnnouncement() {
         const filterAnnouncement = {
             date: filterDate.value,
             endRoute: filterEndRoute.value,
-            //startRoute: filterStartRoute,
+            startRoute: filterStartRoute.value,
         }
         const response = await fetch('https://traveler-yd39.onrender.com/announcement/filter',
             {
