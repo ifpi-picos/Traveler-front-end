@@ -10,7 +10,6 @@ async function getAnnouncements() {
     const response = await fetch('https://traveler-yd39.onrender.com/announcement');
     const announcements = await response.json();
     if (response.status === 200){
-        console.log(announcements);
         fillScreen(announcements);
     } else {
         console.log(announcements.message);
@@ -38,24 +37,20 @@ function fillScreen(announcements) {
 }
 
 //pegar e filtrar anuncios (integraçao)
-async function filterAnnouncement() {
+async function filterAnnouncement(event) {
+    event.preventDefault()
     try {
-        const filterAnnouncement = {
-            date: filterDate.value,
-            endRoute: filterEndRoute.value,
-            startRoute: filterStartRoute.value,
-        }
-        const response = await fetch('https://traveler-yd39.onrender.com/announcement/filter',
-            {
-                method: "POST",
-                headers: {
-                    Accept: "application/json",
-                    "Content-type": "application/json",
-                },
-            body: JSON.stringify(filterAnnouncement),
-            }
-            
+        const date = filterDate.value;
+        const endRoute = filterEndRoute.value;
+        const startRoute = filterStartRoute.value;
+
+        const response = await fetch(`https://traveler-yd39.onrender.com/announcement/filter?date=${date}&endRoute=${endRoute}&startRoute=${startRoute}`,{
+           headers: {
+            Accept: "application/json",
+           } 
+        } 
         );
+
         const announcements = await response.json();
 
         if (response.status === 200){
