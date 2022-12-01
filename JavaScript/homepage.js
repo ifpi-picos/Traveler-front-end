@@ -26,6 +26,7 @@ function fillScreen(announcements) {
                     <h3> <i class="fas fa-map-marker-alt"></i> teresina </h3>
                 </div>
                 <div class="content">
+                    <p>Data: ${announcement.date}</p>
                     <div class="price"> R$${announcement.price} </div>
                     <p>${announcement.startRoute} para ${announcement.endRoute}</p>
                     <a href="#" class="btn"> acessar</a>
