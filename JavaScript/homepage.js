@@ -19,6 +19,8 @@ async function getAnnouncements() {
 function fillScreen(announcements) {
     divAnnouncement.innerHTML = '';
     announcements.forEach(announcement => {
+        const date = announcement.date.split("T")[0];
+        
         const newAnnouncementHtml = `
             <div class="box" data-aos="fade-up">
                 <div class="image">
@@ -26,7 +28,7 @@ function fillScreen(announcements) {
                     <h3> <i class="fas fa-map-marker-alt"></i> teresina </h3>
                 </div>
                 <div class="content">
-                    <p>Data: ${announcement.date}</p>
+                    <p>Data: ${date}</p>
                     <div class="price"> R$${announcement.price} </div>
                     <p>${announcement.startRoute} para ${announcement.endRoute}</p>
                     <a href="#" class="btn"> acessar</a>
