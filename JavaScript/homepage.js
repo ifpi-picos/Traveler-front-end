@@ -1,4 +1,5 @@
-// Link da API online = https://traveler-yd39.onrender.com
+// const baseUrl = 'https://traveler-yd39.onrender.com/';
+const baseUrl = 'http://localhost:3003/';
 
 //pegar e filtrar anuncios (integraçao)
 const divAnnouncement = document.querySelector('#announcement');
@@ -7,7 +8,7 @@ const filterEndRoute = document.querySelector('#filterEndRoute');
 const filterStartRoute = document.querySelector('#filterStartRoute');
 
 async function getAnnouncements() {
-    const response = await fetch('https://traveler-yd39.onrender.com/announcement');
+    const response = await fetch(`${baseUrl}announcement`);
     const announcements = await response.json();
     if (response.status === 200){
         fillScreen(announcements);
@@ -53,7 +54,7 @@ async function filterAnnouncement(event) {
         const endRoute = filterEndRoute.value;
         const startRoute = filterStartRoute.value;
 
-        const response = await fetch(`https://traveler-yd39.onrender.com/announcement/filter?date=${date}&endRoute=${endRoute}&startRoute=${startRoute}`,{
+        const response = await fetch(`${baseUrl}announcement/filter?date=${date}&endRoute=${endRoute}&startRoute=${startRoute}`,{
            headers: {
             Accept: "application/json",
            } 
