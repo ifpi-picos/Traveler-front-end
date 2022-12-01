@@ -19,8 +19,14 @@ async function getAnnouncements() {
 function fillScreen(announcements) {
     divAnnouncement.innerHTML = '';
     announcements.forEach(announcement => {
-        const date = announcement.date.split("T")[0];
-        
+        const dateWithoutTime = announcement.date.split("T")[0];
+        const smashDate = dateWithoutTime.split('-');
+        const day = smashDate[2];
+        const month = smashDate[1];
+        const year = smashDate[0];
+
+        const date = `${day}/${month}/${year}`;
+
         const newAnnouncementHtml = `
             <div class="box" data-aos="fade-up">
                 <div class="image">
