@@ -518,6 +518,12 @@ section{
     color:var(--text-color-1);
     font-size: 2.5rem;
 }
+.packages .box-container .box .content .date{
+    font-size: 1.5rem;
+    padding:.5rem 0;
+    color:var(--text-color-2);
+    line-height: 1.7;
+}
 
 .packages .box-container .box .content .price span{
     font-weight: lighter;
