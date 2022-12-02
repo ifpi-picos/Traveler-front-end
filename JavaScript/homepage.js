@@ -1,11 +1,12 @@
-// const baseUrl = 'https://traveler-yd39.onrender.com/';
-const baseUrl = 'http://localhost:3003/';
+const baseUrl = 'https://traveler-yd39.onrender.com/';
+// const baseUrl = 'http://localhost:3003/';
 
 //pegar e filtrar anuncios (integraçao)
 const divAnnouncement = document.querySelector('#announcement');
 const filterDate = document.querySelector('#filterDate');
 const filterEndRoute = document.querySelector('#filterEndRoute');
 const filterStartRoute = document.querySelector('#filterStartRoute');
+const filterOnlyEndRoute = document.querySelector('#searchBox')
 
 async function getAnnouncements() {
     const response = await fetch(`${baseUrl}announcement`);
@@ -51,9 +52,13 @@ async function filterAnnouncement(event) {
     event.preventDefault()
     try {
         const date = filterDate.value;
-        const endRoute = filterEndRoute.value;
+        let endRoute = filterEndRoute.value;
         const startRoute = filterStartRoute.value;
 
+        if (!endRoute) {
+            endRoute = filterOnlyEndRoute.value;
+        }
+ 
         const response = await fetch(`${baseUrl}announcement/filter?date=${date}&endRoute=${endRoute}&startRoute=${startRoute}`,{
            headers: {
             Accept: "application/json",
