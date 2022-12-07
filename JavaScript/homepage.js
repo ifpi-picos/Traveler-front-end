@@ -1,13 +1,15 @@
-// Link da API online = https://traveler-yd39.onrender.com
+const baseUrl = 'https://traveler-yd39.onrender.com/';
+// const baseUrl = 'http://localhost:3003/';
 
 //pegar e filtrar anuncios (integraçao)
 const divAnnouncement = document.querySelector('#announcement');
 const filterDate = document.querySelector('#filterDate');
 const filterEndRoute = document.querySelector('#filterEndRoute');
 const filterStartRoute = document.querySelector('#filterStartRoute');
+const filterOnlyEndRoute = document.querySelector('#searchBox')
 
 async function getAnnouncements() {
-    const response = await fetch('https://traveler-yd39.onrender.com/announcement');
+    const response = await fetch(`${baseUrl}announcement`);
     const announcements = await response.json();
     if (response.status === 200){
         fillScreen(announcements);
@@ -19,6 +21,14 @@ async function getAnnouncements() {
 function fillScreen(announcements) {
     divAnnouncement.innerHTML = '';
     announcements.forEach(announcement => {
+        const dateWithoutTime = announcement.date.split("T")[0];
+        const smashDate = dateWithoutTime.split('-');
+        const day = smashDate[2];
+        const month = smashDate[1];
+        const year = smashDate[0];
+
+        const date = `${day}/${month}/${year}`;
+
         const newAnnouncementHtml = `
             <div class="box" data-aos="fade-up">
                 <div class="image">
@@ -26,6 +36,7 @@ function fillScreen(announcements) {
                     <h3> <i class="fas fa-map-marker-alt"></i> teresina </h3>
                 </div>
                 <div class="content">
+                    <p>Data: ${date}</p>
                     <div class="price"> R$${announcement.price} </div>
                     <p>${announcement.startRoute} para ${announcement.endRoute}</p>
                     <a href="#" class="btn"> acessar</a>
@@ -41,10 +52,14 @@ async function filterAnnouncement(event) {
     event.preventDefault()
     try {
         const date = filterDate.value;
-        const endRoute = filterEndRoute.value;
+        let endRoute = filterEndRoute.value;
         const startRoute = filterStartRoute.value;
 
-        const response = await fetch(`https://traveler-yd39.onrender.com/announcement/filter?date=${date}&endRoute=${endRoute}&startRoute=${startRoute}`,{
+        if (!endRoute) {
+            endRoute = filterOnlyEndRoute.value;
+        }
+ 
+        const response = await fetch(`${baseUrl}announcement/filter?date=${date}&endRoute=${endRoute}&startRoute=${startRoute}`,{
            headers: {
             Accept: "application/json",
            } 
