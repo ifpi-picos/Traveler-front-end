@@ -65,6 +65,8 @@ async function filterAnnouncement(event) {
     
 //pegar e filtrar anuncios (integraçao) - fim
 
+
+
 let navbar = document.querySelector('.navbar')
 
 document.querySelector('#menu-btn').onclick = () =>{

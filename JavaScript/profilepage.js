@@ -44,14 +44,27 @@ themeBtn.onclick = () =>{
 
 
 
-// const tabBtn = document.querySelectorAll(".tab");
-// const tab = document.querySelectorAll(".tabShow");
+
+// popup image
+function showModal() {
+    var element = document.getElementById("modal");
+    element.classList.add("show-modal");
+}
+
+function closeModal() {
+    var element = document.getElementById("modal");
+    element.classList.remove("show-modal");
+}
 
 
-// function tabs(panelIndex) {
-//     tab.forEach(function(node) {
-//         node.getElementsByClassName.display = "none";
-//     });
-//     tab[panelIndex].getElementsByClassName.display = "block";
-// }
-// tabs(0);
+// popup delete account
+function showDelete() {
+    var element = document.getElementById("delete");
+    element.classList.add("show-delete");
+}
+function closeDelete() {
+    var element = document.getElementById("delete");
+    element.classList.remove("show-delete");
+}   
+
+
