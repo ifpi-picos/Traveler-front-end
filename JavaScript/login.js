@@ -58,6 +58,7 @@ EmailLogin.addEventListener("keyup", () => {
                         "content-Type":"application/json",
                         Accept: "application/json",
                     },
+                    credentials: 'include',
                     body: JSON.stringify({
                         email: inputEmail.value,
                         password:senhalogin.value
