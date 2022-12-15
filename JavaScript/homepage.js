@@ -1,6 +1,13 @@
 const baseUrl = 'https://traveler-yd39.onrender.com/';
 // const baseUrl = 'http://localhost:3003/';
 
+
+if (localStorage.getItem('token') == null) {
+    alert("Você precisa estar logado para ter acesso a esta página.");
+    window.location.href = `https://traveler-io.netlify.app/`;
+}
+
+
 //pegar e filtrar anuncios (integraçao)
 const divAnnouncement = document.querySelector('#announcement');
 const filterDate = document.querySelector('#filterDate');
@@ -9,7 +16,14 @@ const filterStartRoute = document.querySelector('#filterStartRoute');
 const filterOnlyEndRoute = document.querySelector('#searchBox')
 
 async function getAnnouncements() {
-    const response = await fetch(`${baseUrl}announcement`);
+    const response = await fetch(`${baseUrl}announcement`,{
+        method: "GET",
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            "Authorization": window.localStorage.getItem("token")
+        }
+    });
     const announcements = await response.json();
     if (response.status === 200){
         fillScreen(announcements);
@@ -60,9 +74,12 @@ async function filterAnnouncement(event) {
         }
  
         const response = await fetch(`${baseUrl}announcement/filter?date=${date}&endRoute=${endRoute}&startRoute=${startRoute}`,{
-           headers: {
-            Accept: "application/json",
-           } 
+            method: "GET",
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+                "Authorization": window.localStorage.getItem("token")
+            }
         } 
         );
 
@@ -124,3 +141,7 @@ themeBtn.onclick = () =>{
     }
 
 };
+
+function logout() {
+    window.localStorage.removeItem('token');
+}

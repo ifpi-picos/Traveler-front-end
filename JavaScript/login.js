@@ -1,3 +1,6 @@
+const baseUrl = 'https://traveler-yd39.onrender.com/';
+// const baseUrl = 'http://localhost:3003/';
+
 let EmailLogin = document.querySelector("#EmailLogin")
 let labelEmailLogin = document.querySelector("#labelEmailLogin")
 
@@ -29,6 +32,11 @@ EmailLogin.addEventListener("keyup", () => {
   
     return valpass.test(Password);
   }
+  function setToken(token) {
+    localStorage.setItem("token", token);
+
+    return;
+  }
 
 
   async function init () {
@@ -49,33 +57,40 @@ EmailLogin.addEventListener("keyup", () => {
     }
     if(submitBuutton){
             submitBuutton.addEventListener("click",async (event)=>{
-                submitBuutton.textContent = "...Loading"
-                // event.preventDefault()
+                if (validatePassword(senhalogin.value) === true && validateEmail(EmailLogin.value) === true) {
+                    submitBuutton.textContent = "...Loading"
+                    // event.preventDefault()
 
-                await fetch("https://traveler-yd39.onrender.com/authentication/login",{
-                    method: 'POST',
-                    headers: {
-                        "content-Type":"application/json",
-                        Accept: "application/json",
-                    },
-                    credentials: 'include',
-                    body: JSON.stringify({
-                        email: inputEmail.value,
-                        password:senhalogin.value
+                    await fetch(`${baseUrl}authentication/login`,{
+                        method: 'POST',
+                        headers: {
+                            "content-Type":"application/json",
+                            Accept: "application/json",
+                        },
+                        credentials: "include",
+                        body: JSON.stringify({
+                            email: inputEmail.value,
+                            password:senhalogin.value
+                        })
+                        
+                    }).then(async (response) => {
+                        if(response.status!== 200){
+                            console.log(response)
+                            return  errorHandler();
+                        }
+                        const { token } = await response.json()
+                        setToken(token)
+                        document.cookie = token;
+                        successHandler()
+                        window.location = "/pages/homepage.html"
+                    }).catch(()=>{
+                        errorHandler();
                     })
-                    
-                }).then((response) => {
-                    if(response.status!== 201){
-                        console.log(response)
-                        return  errorHandler();
-                    }
-                    successHandler()
-                    window.location = "/pages/homepage.html"
-                }).catch(()=>{
+                } else {
                     errorHandler();
-                })
-                
+                }
             })
+
     }
 }
 window.onload = init
