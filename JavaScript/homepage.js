@@ -40,13 +40,14 @@ function fillScreen(announcements) {
         const day = smashDate[2];
         const month = smashDate[1];
         const year = smashDate[0];
-
+        
+        const image = announcement.image;
         const date = `${day}/${month}/${year}`;
 
         const newAnnouncementHtml = `
             <div class="box" data-aos="fade-up">
                 <div class="image">
-                    <img src="/img/Teresina.jpg" alt="">
+                    <img src="${image}" alt="">
                     <h3> <i class="fas fa-map-marker-alt"></i> teresina </h3>
                 </div>
                 <div class="content">
