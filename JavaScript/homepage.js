@@ -40,7 +40,7 @@ function fillScreen(announcements) {
         const day = smashDate[2];
         const month = smashDate[1];
         const year = smashDate[0];
-        
+        const vehicle = announcement.vehicle;
         const image = announcement.image;
         const date = `${day}/${month}/${year}`;
 
@@ -48,7 +48,7 @@ function fillScreen(announcements) {
             <div class="box" data-aos="fade-up">
                 <div class="image">
                     <img src="${image}" alt="">
-                    <h3> <i class="fas fa-map-marker-alt"></i> teresina </h3>
+                    <h3> <i class="fas fa-map-marker-alt"></i> ${vehicle} </h3>
                 </div>
                 <div class="content">
                     <p>Data: ${date}</p>
@@ -145,4 +145,7 @@ themeBtn.onclick = () =>{
 
 function logout() {
     window.localStorage.removeItem('token');
+    window.localStorage.removeItem('id');
+    window.localStorage.removeItem('name');
+    window.localStorage.removeItem('email');
 }

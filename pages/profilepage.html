@@ -22,7 +22,7 @@
         <a href="#" class="logo"> TRAVELER </a>
 
         <form action="" class="search-form">
-            <input type="search" name="" placeholder="buscar" id="searchBox">
+            <input type="search" name="" placeholder="buscar por destino" id="searchBox">
             <label for="searchBox" class="fas fa-search"></label>
         </form>
 
@@ -57,9 +57,13 @@
     <section class="account">
         <div class="container">
             <div class="profile">
-                <div class="profile-image">
+                <div class="profile-image" id="avatarUser">
+                     <!-- <img src="/img/space_cinematic.png" alt="" id="image">
+                    <input type="file" accept="image/*" id="picture_image" onclick="showModal(e)" class="fas fa-image"></input> -->
                     <img src="/img/space_cinematic.png" alt="" id="image">
-                    <i onclick="showModal()" class="fas fa-image"></i>
+                    <label class="fas fa-image" for="picture_image" id="label_image_profile">
+                            <input type="file" onchange="updateImage()" accept="image/*" id="picture_image" class="fas fa-image"></input>
+                    </label>
                 </div>
 
                 <h2>Alessandro Silva</h2>

@@ -724,6 +724,20 @@ section {
     width: 230px;
 }
 
+/* wesley que fez */
+#label_image_profile {
+ cursor: pointer;
+}
+
+#label_image_profile::before {
+
+}
+
+#picture_image {
+    display: none;
+}
+/* fim da parte de wesley */
+
 .profile .profile-image img {
     width: 100%;
     height: 170px;

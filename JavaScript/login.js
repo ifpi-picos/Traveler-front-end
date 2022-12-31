@@ -32,6 +32,15 @@ EmailLogin.addEventListener("keyup", () => {
   
     return valpass.test(Password);
   }
+
+  function setUserData(userData) {
+    localStorage.setItem("id", userData.id);
+    localStorage.setItem("email", userData.email);
+    localStorage.setItem("name", userData.name);
+
+    return;
+  }
+
   function setToken(token) {
     localStorage.setItem("token", token);
 
@@ -78,9 +87,11 @@ EmailLogin.addEventListener("keyup", () => {
                             console.log(response)
                             return  errorHandler();
                         }
-                        const { token } = await response.json()
-                        setToken(token)
+                        const { token, userData } = await response.json()
+                        setToken(token);
                         document.cookie = token;
+                        
+                        setUserData(userData);
                         successHandler()
                         window.location = "/pages/homepage.html"
                     }).catch(()=>{

@@ -1,3 +1,12 @@
+const baseUrl = 'https://traveler-yd39.onrender.com/';
+// const baseUrl = 'http://localhost:3003/';
+
+
+if (localStorage.getItem('token') == null) {
+    alert("Você precisa estar logado para ter acesso a esta página.");
+    window.location.href = `https://traveler-io.netlify.app/`;
+}
+
 let navbar = document.querySelector('.navbar')
 
 document.querySelector('#menu-btn').onclick = () =>{
@@ -41,14 +50,85 @@ themeBtn.onclick = () =>{
 
 };
 
+const divAvatarUser = document.querySelector('#avatarUser');
 
+// id do usuário
+function getIdUser(){
+    const id = localStorage.getItem('id');
+    
+    return id;
+}
 
+// coloca a imagem do usuario
+function fillScreenImage(imageUrl) {
+    if (imageUrl){
+        const newAvatarUser = `
+            <img src="${imageUrl}" alt="" id="image">
+            <label class="fas fa-image" for="picture_image" id="label_image_profile">
+                <input type="file" onchange="updateImage()" accept="image/*" id="picture_image" class="fas fa-image"></input>
+            </label>
+        `;
+        divAvatarUser.innerHTML = newAvatarUser;
 
+        return;
+    } else {
+        divAvatarUser.innerHTML = `
+            <img src="/img/space_cinematic.png" alt="" id="image">
+            <label class="fas fa-image" for="picture_image" id="label_image_profile">
+                    <input type="file" onchange="updateImage()" accept="image/*" id="picture_image" class="fas fa-image"></input>
+            </label>
+        `;
 
+        return;
+    }
+}
+
+//pega o usuário da api
+getUser();
+async function getUser() {
+    const idUser = getIdUser();
+    const resp = await fetch(`${baseUrl}users/${idUser}`, {
+        method: 'GET',
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            'Authorization': localStorage.getItem("token")
+        }
+    });
+    const user = await resp.json();
+
+    // Printar imagem na tela
+    fillScreenImage(user.image);
+}
+
+//tirar botão e ouvir input
 // popup image
-function showModal() {
-    var element = document.getElementById("modal");
-    element.classList.add("show-modal");
+//Atualizar imagem
+async function updateImage() {
+    var element = document.getElementById("picture_image");
+
+    let data = new FormData();
+    data.append('image', element.files[0]);
+    
+    // pegar id do user
+    const idUser = getIdUser();
+
+    const resp = await fetch(`${baseUrl}users/image/${idUser}`, {
+        method: 'PATCH',
+        body: data,
+        headers: {
+            "Accept": "application/json",
+            'Authorization': localStorage.getItem("token")
+        }
+    });
+
+    data = null;
+
+    const imageLink = await resp.json();
+    
+    //Printar imagem na tela
+    fillScreenImage(imageLink.image);
+    
 }
 
 function closeModal() {
