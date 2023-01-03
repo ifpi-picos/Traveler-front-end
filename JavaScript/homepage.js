@@ -48,7 +48,7 @@ function fillScreen(announcements) {
             <div class="box" data-aos="fade-up">
                 <div class="image">
                     <img src="${image}" alt="">
-                    <h3> <i class="fas fa-map-marker-alt"></i> ${vehicle} </h3>
+                    <h3> <i class="fas fa-map-marker-alt"></i> ${announcement.endRoute} </h3>
                 </div>
                 <div class="content">
                     <p>Data: ${date}</p>
