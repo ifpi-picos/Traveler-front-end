@@ -15,23 +15,41 @@ const filterEndRoute = document.querySelector('#filterEndRoute');
 const filterStartRoute = document.querySelector('#filterStartRoute');
 const filterOnlyEndRoute = document.querySelector('#searchBox')
 
+//pegar e filtrar anuncios (integraçao)
 async function getAnnouncements() {
-    const response = await fetch(`${baseUrl}announcement`,{
-        method: "GET",
-        headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json",
-            "Authorization": window.localStorage.getItem("token")
+    try{
+        const date = filterDate.value;
+        let endRoute = filterEndRoute.value;
+        const startRoute = filterStartRoute.value;
+
+        if (!endRoute) {
+            endRoute = filterOnlyEndRoute.value;
         }
-    });
-    const announcements = await response.json();
-    if (response.status === 200){
-        fillScreen(announcements);
-    } else {
-        console.log(announcements.message);
-    }
+
+        const response = await fetch(`${baseUrl}announcement?date=${date}&endRoute=${endRoute}&startRoute=${startRoute}`,{
+            method: "GET",
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+                "Authorization": window.localStorage.getItem("token")
+            }
+        } 
+        );
+
+        const announcements = await response.json();
+
+        if (response.status === 200){
+            //printar anuncios encontrados na tela
+            fillScreen(announcements);
+        } else {
+            console.log(announcements);
+        }
+}   catch (error) {
+        console.error(error.message);
+}
 }
 
+//printar anuncios encontrados na tela
 function fillScreen(announcements) {
     divAnnouncement.innerHTML = '';
     announcements.forEach(announcement => {
@@ -48,7 +66,7 @@ function fillScreen(announcements) {
             <div class="box" data-aos="fade-up">
                 <div class="image">
                     <img src="${image}" alt="">
-                    <h3> <i class="fas fa-map-marker-alt"></i> ${vehicle} </h3>
+                    <h3> <i class="fas fa-map-marker-alt"></i> ${announcement.endRoute} </h3>
                 </div>
                 <div class="content">
                     <p>Data: ${date}</p>
@@ -61,41 +79,6 @@ function fillScreen(announcements) {
         divAnnouncement.innerHTML = divAnnouncement.innerHTML + newAnnouncementHtml;
     });
 }
-
-//pegar e filtrar anuncios (integraçao)
-async function filterAnnouncement(event) {
-    event.preventDefault()
-    try {
-        const date = filterDate.value;
-        let endRoute = filterEndRoute.value;
-        const startRoute = filterStartRoute.value;
-
-        if (!endRoute) {
-            endRoute = filterOnlyEndRoute.value;
-        }
- 
-        const response = await fetch(`${baseUrl}announcement/filter?date=${date}&endRoute=${endRoute}&startRoute=${startRoute}`,{
-            method: "GET",
-            headers: {
-                "Accept": "application/json",
-                "Content-Type": "application/json",
-                "Authorization": window.localStorage.getItem("token")
-            }
-        } 
-        );
-
-        const announcements = await response.json();
-
-        if (response.status === 200){
-            fillScreen(announcements);
-        } else {
-            console.log(announcements);
-        }
-    } catch (error) {
-        console.error(error.message);
-    }
-}
-    
 //pegar e filtrar anuncios (integraçao) - fim
 
 

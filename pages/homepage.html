@@ -26,7 +26,7 @@
 
     <form action="" class="search-form">
         <input type="search" name="" placeholder="buscar por destino" id="searchBox">
-        <label  onclick="filterAnnouncement(event)" for="searchBox" class="fas fa-search"></label>
+        <label  onclick="getAnnouncements()" for="searchBox" class="fas fa-search"></label>
     </form>
 
     <div class="icons">
@@ -92,7 +92,7 @@
             <input id="filterDate" type="date">
         </div>
 
-        <input onclick="filterAnnouncement(event)" type="submit" value="buscar" class="btn">
+        <input onclick="getAnnouncements()" type="submit" value="buscar" class="btn">
         
     </form>
 

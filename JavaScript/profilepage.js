@@ -101,7 +101,6 @@ async function getUser() {
     fillScreenImage(user.image);
 }
 
-//tirar botão e ouvir input
 // popup image
 //Atualizar imagem
 async function updateImage() {
