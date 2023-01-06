@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traveler</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file cdn link  -->
+    <link rel="stylesheet" href="/style/style.css">
+
+</head>
+
+<body>
+
+    <!-- header section starts  -->
+
+    <header class="header">
+
+        <a href="#" class="logo"> TRAVELER </a>
+
+        <form action="" class="search-form">
+            <input type="search" name="" placeholder="buscar" id="searchBox">
+            <label for="searchBox" class="fas fa-search"></label>
+        </form>
+
+        <div class="icons">
+            <div class="fas fa-search" id="search-btn"></div>
+            <div class="fas fa-moon" id="theme-btn"></div>
+            <div class="fas fa-user" id="login-btn"></div>
+            <div class="fas fa-bars" id="menu-btn"></div>
+        </div>
+
+        <nav class="navbar">
+            <a href="/pages/homepage.html">Inicio</a>
+            <a onclick="getAnnouncements()" href="/pages/homepage.html">Viagens</a>
+            <a href="#">Ajuda</a>
+            <a href="#">Sobre Nós</a>
+        </nav>
+
+
+        <div class="login-form">
+            <a href="/pages/profilepage.html">Perfil</a>
+            <a href="/pages/announcementpage.html">Criar Viagem</a>
+            <a href="/index.html">Sair</a>
+        </div>
+
+
+    </header>
+
+    <!-- header section ends -->
+
+    <!-- announcement section starts-->
+
+
+    <section class="announcementpage">
+
+    </section>
+
+    <section class="announcementpage" id="announcements">
+
+        <h1 class="heading"> <span>Viagens</span> </h1>
+    
+        <div class="box-container" id="announcement">
+    
+            <div class="box" data-aos="fade-up">
+                <div class="image">
+                    <img src="/img/carro 1.jpg" alt="">
+                    <h3> <i class="fas fa-map-marker-alt"></i> Teresina </h3>
+                </div>
+                <div class="content">
+                    <div class="price"> R$100.00 </div>
+                    <p>Picos para Teresina</p>
+                    <div class="date">23/01/2023</div>
+                    <p>Total de passageiros: 5</p>
+                    <a href="#" class="btn"> Acessar</a>
+                </div>
+            </div>
+    
+            <div class="box" data-aos="fade-up">
+                <div class="image">
+                    <img src="/img/carro 1.jpg" alt="">
+                    <h3> <i class="fas fa-map-marker-alt"></i> Picos </h3>
+                </div>
+                <div class="content">
+                    <div class="price"> R$100.00 </div>
+                    <p>Teresina para Picos</p>
+                    <div class="date">24/01/2023</div>
+                    <p>Total de passageiros: 5</p>
+                    <a href="#" class="btn"> Acessar</a>
+                </div>
+            </div>
+    
+            <div class="box" data-aos="fade-up">
+                <div class="image">
+                    <img src="/img/carro 1.jpg" alt="">
+                    <h3> <i class="fas fa-map-marker-alt"></i> Teresina </h3>
+                </div>
+                <div class="content">
+                    <div class="price"> R$100.00 </div>
+                    <p>Picos para Teresina</p>
+                    <div class="date">25/01/2023</div>
+                    <p>Total de passageiros: 5</p>
+                    <a href="#" class="btn"> Acessar</a>
+                </div>
+            </div>
+    
+            <div class="box" data-aos="fade-up">
+                <div class="image">
+                    <img src="/img/carro 1.jpg" alt="">
+                    <h3> <i class="fas fa-map-marker-alt"></i> Picos </h3>
+                </div>
+                <div class="content">
+                    <div class="price"> R$100.00 </div>
+                    <p>Teresina para Picos</p>
+                    <div class="date">26/01/2023</div>
+                    <p>Total de passageiros: 5</p>
+                    <a href="#" class="btn"> Acessar</a>
+                </div>
+            </div>
+    
+            <div class="box" data-aos="fade-up">
+                <div class="image">
+                    <img src="/img/carro 1.jpg" alt="">
+                    <h3> <i class="fas fa-map-marker-alt"></i> Teresina </h3>
+                </div>
+                <div class="content">
+                    <div class="price"> R$100.00  </div>
+                    <p>Picos para Teresina</p>
+                    <div class="date">27/01/2023</div>
+                    <p>Total de passageiros: 5</p>
+                    <a href="#" class="btn"> Acessar</a>
+                </div>
+            </div>
+    
+            <div class="box" data-aos="fade-up">
+                <div class="image">
+                    <img src="/img/carro 1.jpg" alt="">>
+                    <h3> <i class="fas fa-map-marker-alt"></i> Picos </h3>
+                </div>
+                <div class="content">
+                    <div class="price"> R$100.00  </div>
+                    <p>Teresina para Picos</p>
+                    <div class="date">28/01/2023</div>
+                    <p>Total de passageiros: 5</p>
+                    <a href="#" class="btn"> Acessar</a>
+                </div>          
+   
+        <div class="container">
+            <div class="profile">
+                <div class="profile-image">
+                    <img src="/img/space_cinematic.png" alt="" id="image">
+                    <i onclick="showModal()" class="fas fa-image"></i>
+                </div>
+
+                <h2>Alessandro Silva</h2>
+            </div>
+
+            <div class="wrapper">
+
+                <div class="title">
+                    Informações da conta
+                </div>
+                <form action="" class="form-profile">
+                    <div class="input-account">
+                        <label>Nome</label>
+                        <input type="text" placeholder="Nome"  value="Alessandro Silva">
+                    </div>
+                    <div class="input-account">
+                        <label>E-Mail</label>
+                        <input type="text" placeholder="E-mail" value="teste2@gmail.com">
+                    </div>
+                    <div class="column">
+                        <div class="input-account">
+                            <label>Estado</label>
+                            <input type="text" placeholder="Estado">
+                        </div>
+                        <div class="input-account">
+                            <label>Cidade</label>
+                            <input type="text" placeholder="Cidade">
+                        </div>
+                    </div>
+                </form>
+                <div class="title">
+                    Informações de Senha
+                </div>
+                <form action="" class="form-profile">
+
+                    <div class="input-accountPassword">
+                        <label>Senha Atual</label>
+                        <input type="password" placeholder="Senha Atual">
+                    </div>
+                    <div class="column">
+                        <div class="input-account">
+                            <label>Nova Senha</label>
+                            <input type="password" placeholder="Nova Senha">
+                        </div>
+                        <div class="input-account">
+                            <label>Confirmar</label>
+                            <input type="password" placeholder="Confirmar">
+                        </div>
+                    </div>
+                    <div class="inputfield">
+                        <input type="submit" value="Alterar" class="btn-profile">
+                    </div>
+                </form>
+
+                <div class="title">
+                    Deletar conta
+                </div>
+                <div class="delete-subtitle">
+                    <p>Depois de excluir sua conta, não há como voltar atrás. Por favor, tenha certeza!</p>
+                </div>
+                <div class="delete-button">
+                    <button onclick="showDelete()">Deletar sua conta</button>
+                </div>
+                <div class="delete" id="delete">
+                    <div class="delete-content">
+                        <div class="delete-itens">
+                            <h1>Tem certeza disso?</h1>
+                            <p>Digite seu Email e Senha para confirmação de delatar conta.</p>
+                            <div class="input-account">
+                                <label>E-Mail</label>
+                                <input type="text" placeholder="E-mail">
+                            </div>
+                            <div class="input-account">
+                                <label>Senha Atual</label>
+                                <input type="password" placeholder="Senha">
+                            </div>
+                            <div class="buttons">
+                                <button class="yes">Sim</button>
+
+                                <button class="no" onclick="closeDelete()">Não</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section> -->
+    <!-- announcement section ends-->
+
+
+    <!-- footer section starts  -->
+
+     <!-- <section class="footer">
+
+    <div class="box-container">
+
+        <div class="box" data-aos="fade-up">
+            <h3>Links Rápidos</h3>
+            <a href="/pages/homepage.html"> <i class="fas fa-chevron-right"></i> Inicio </a>
+            <a href="/pages/profilepage.html"> <i class="fas fa-chevron-right"></i> Perfil </a>
+            <a onclick="getAnnouncements()" href="/pages/homepage.html"> <i class="fas fa-chevron-right"></i> Ver Viagens </a>
+        </div>
+
+        <div class="box" data-aos="fade-up">
+            <h3>Sobre</h3>
+            <a href=""><i class="fas fa-chevron-right"></i> Nossa equipe</a>
+            <a href=""><i class="fas fa-chevron-right"></i> Ajuda</a>
+        </div>
+
+ 
+
+    </div>
+
+    <div class="credit"> created by <span>Traveler</span> | all rights reserved </div>
+
+</section>  -->
+
+    <!-- footer section ends -->
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+
+    <!-- custom js file link  -->
+    <script src="../JavaScript/announcement.js"></script>
+
+    <script>
+
+        AOS.init({
+            duration: 350,
+            delay: 200
+        });
+
+    </script>
+
+</body>
+
+</html>

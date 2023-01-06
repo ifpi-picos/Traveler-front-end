@@ -722,21 +722,27 @@ section {
     padding: 2rem;
     position: relative;
     width: 230px;
+    
 }
 
-/* wesley que fez */
+
 #label_image_profile {
- cursor: pointer;
-}
-
-#label_image_profile::before {
-
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 140px;
+    font-size: 2em;
+    border-radius: 50px;
+    padding: 10px;
+    background: var(--bg-color-2);
+    color: var(--blue);
+    border: 1px solid #333;
+    cursor: pointer;
 }
 
 #picture_image {
     display: none;
 }
-/* fim da parte de wesley */
 
 .profile .profile-image img {
     width: 100%;
@@ -759,6 +765,9 @@ section {
     border: 1px solid #333;
     cursor: pointer;
 
+}
+.profile i:hover{
+        
 }
 
 .wrapper {
@@ -1011,4 +1020,84 @@ section {
         box-shadow: var(--box-shadow);
         object-fit: cover;
     }
+}
+
+
+/* announcement page */
+.announcementpage{
+    padding-top: 4rem;
+}
+
+.announcementpage .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+}
+
+.announcementpage .box-container .box {
+    background: var(--bg-color-1);
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+}
+
+.announcementpage .box-container .box .image {
+    height: 25rem;
+    width: 100%;
+    padding: 1.5rem;
+    position: relative;
+}
+
+.announcementpage .box-container .box .image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: .5rem;
+}
+
+.announcementpage .box-container .box .image h3 {
+    position: absolute;
+    top: 2.5rem;
+    left: 2.5rem;
+    font-size: 2rem;
+    color: #fff;
+    background: rgba(0, 0, 0, .5);
+    border-radius: .5rem;
+    font-weight: lighter;
+    padding: .5rem 1.5rem;
+}
+
+.announcementpage .box-container .box .image h3 i {
+    color: var(--blue);
+}
+
+.announcementpage .box-container .box .content {
+    padding: 1.5rem;
+    padding-top: 0;
+}
+
+.announcementpage .box-container .box .content .price {
+    font-weight: 600;
+    color: var(--text-color-1);
+    font-size: 2.5rem;
+}
+
+.announcementpage .box-container .box .content .date {
+    font-size: 1.5rem;
+    padding: .5rem 0;
+    color: var(--text-color-2);
+    line-height: 1.7;
+}
+
+.announcementpage .box-container .box .content .price span {
+    font-weight: lighter;
+    color: var(--text-color-2);
+    font-size: 1.5rem;
+    text-decoration: line-through;
+}
+
+.announcementpage .box-container .box .content p {
+    font-size: 1.5rem;
+    padding: .5rem 0;
+    color: var(--text-color-2);
+    line-height: 1.7;
 }
