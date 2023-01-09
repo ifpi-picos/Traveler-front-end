@@ -40,3 +40,21 @@ themeBtn.onclick = () =>{
     }
 
 };
+
+
+
+
+
+
+
+
+// popup create announcement
+function showAdd() {
+    var element = document.getElementById("formCreate");
+    element.classList.add("show-create");
+}
+function closeRemove() {
+    var element = document.getElementById("formCreate");
+    element.classList.remove("show-create");
+}   
+
