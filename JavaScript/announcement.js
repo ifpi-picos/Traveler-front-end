@@ -1,3 +1,11 @@
+const baseUrl = 'https://traveler-yd39.onrender.com/';
+// const baseUrl = 'http://localhost:3003/';
+
+if (localStorage.getItem('token') == null) {
+    alert("Você precisa estar logado para ter acesso a esta página.");
+    window.location.href = `https://traveler-io.netlify.app/`;
+}   
+
 let navbar = document.querySelector('.navbar')
 
 document.querySelector('#menu-btn').onclick = () =>{
@@ -42,12 +50,6 @@ themeBtn.onclick = () =>{
 };
 
 
-
-
-
-
-
-
 // popup create announcement
 function showAdd() {
     var element = document.getElementById("formCreate");
@@ -58,3 +60,76 @@ function closeRemove() {
     element.classList.remove("show-create");
 }   
 
+//Integração da página
+// const name = document.querySelector("#name");
+// const socialLink = document.querySelector("#socialLink");
+// const price = document.querySelector("#price");
+// const date = document.querySelector("#date");
+// const startRoute = document.querySelector("#startRoute");
+// const endRoute = document.querySelector("#endRoute");
+
+// // printar os anúncios na tela
+// function fillScreen(announcements) {
+//     divAnnouncement.innerHTML = '';
+//     announcements.forEach(announcement => {
+//         const dateWithoutTime = announcement.date.split("T")[0];
+//         const smashDate = dateWithoutTime.split('-');
+//         const day = smashDate[2];
+//         const month = smashDate[1];
+//         const year = smashDate[0];
+//         // const vehicle = announcement.vehicle;
+//         const image = announcement.image;
+//         const date = `${day}/${month}/${year}`;
+
+//         const newAnnouncementHtml = `
+//             <div class="box" data-aos="fade-up">
+//             <div class="image">
+//                 <img src=${image} alt="">
+//                 <h3> <i class="fas fa-map-marker-alt"></i> ${announcement.endRoute} </h3>
+//             </div>
+//             <div class="content">
+//                 <div class="price"> ${announcement.price} </div>
+//                 <p>${announcement.startRoute} para ${announcement.endRoute}</p>
+//                 <div class="date">${date}</div>
+//                 <a href="#" class="btn"> Acessar</a>
+//             </div>
+//             </div>
+//         `
+//         divAnnouncement.innerHTML = divAnnouncement.innerHTML + newAnnouncementHtml;
+//     });
+// }
+
+// // id do usuário
+// function getIdUser(){
+//     const id = localStorage.getItem('id');
+    
+//     return id;
+// }
+
+// // comunicar com api
+// async function getMyAnnouncement() {
+//     try{
+//         const endRoute = document.querySelector('#searchBox');
+//         const response = await fetch(`${baseUrl}announcement?endRoute=${endRoute}`,{
+//             method: "GET",
+//             headers: {
+//                 "Accept": "application/json",
+//                 "Content-Type": "application/json",
+//                 "Authorization": window.localStorage.getItem("token")
+//             }
+//         } 
+//         );
+
+//         const announcements = await response.json();
+
+//         if (response.status === 200){
+//             //printar anuncios encontrados na tela
+//             fillScreen(announcements);
+//         } else {
+//             console.log(announcements);
+//         }
+// }   catch (error) {
+//         console.error(error.message);
+// }
+// }
+//fim integração da página
