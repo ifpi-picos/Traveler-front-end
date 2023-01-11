@@ -68,9 +68,11 @@ function closeRemove() {
 // const startRoute = document.querySelector("#startRoute");
 // const endRoute = document.querySelector("#endRoute");
 
+// const divMyAnnouncements = document.querySelector("#announcement");
+
 // // printar os anúncios na tela
 // function fillScreen(announcements) {
-//     divAnnouncement.innerHTML = '';
+//     divMyAnnouncements.innerHTML = '';
 //     announcements.forEach(announcement => {
 //         const dateWithoutTime = announcement.date.split("T")[0];
 //         const smashDate = dateWithoutTime.split('-');
@@ -95,22 +97,25 @@ function closeRemove() {
 //             </div>
 //             </div>
 //         `
-//         divAnnouncement.innerHTML = divAnnouncement.innerHTML + newAnnouncementHtml;
+//         divMyAnnouncements.innerHTML = divMyAnnouncements.innerHTML + newAnnouncementHtml;
 //     });
 // }
 
 // // id do usuário
 // function getIdUser(){
-//     const id = localStorage.getItem('id');
+//     const userId = localStorage.getItem('id');
     
-//     return id;
+//     return userId;
 // }
 
 // // comunicar com api
+// getMyAnnouncement();
 // async function getMyAnnouncement() {
 //     try{
+//         const userId = getIdUser();
+
 //         const endRoute = document.querySelector('#searchBox');
-//         const response = await fetch(`${baseUrl}announcement?endRoute=${endRoute}`,{
+//         const response = await fetch(`${baseUrl}announcement?endRoute=${endRoute}&userId=${userId}`,{
 //             method: "GET",
 //             headers: {
 //                 "Accept": "application/json",
