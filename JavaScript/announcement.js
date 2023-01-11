@@ -61,80 +61,80 @@ function closeRemove() {
 }   
 
 //Integração da página
-// const name = document.querySelector("#name");
-// const socialLink = document.querySelector("#socialLink");
-// const price = document.querySelector("#price");
-// const date = document.querySelector("#date");
-// const startRoute = document.querySelector("#startRoute");
-// const endRoute = document.querySelector("#endRoute");
+const name = document.querySelector("#name");
+const socialLink = document.querySelector("#socialLink");
+const price = document.querySelector("#price");
+const date = document.querySelector("#date");
+const startRoute = document.querySelector("#startRoute");
+const endRoute = document.querySelector("#endRoute");
 
-// const divMyAnnouncements = document.querySelector("#announcement");
+const divMyAnnouncements = document.querySelector("#announcement");
 
-// // printar os anúncios na tela
-// function fillScreen(announcements) {
-//     divMyAnnouncements.innerHTML = '';
-//     announcements.forEach(announcement => {
-//         const dateWithoutTime = announcement.date.split("T")[0];
-//         const smashDate = dateWithoutTime.split('-');
-//         const day = smashDate[2];
-//         const month = smashDate[1];
-//         const year = smashDate[0];
-//         // const vehicle = announcement.vehicle;
-//         const image = announcement.image;
-//         const date = `${day}/${month}/${year}`;
+// printar os anúncios na tela
+function fillScreen(announcements) {
+    divMyAnnouncements.innerHTML = '';
+    announcements.forEach(announcement => {
+        const dateWithoutTime = announcement.date.split("T")[0];
+        const smashDate = dateWithoutTime.split('-');
+        const day = smashDate[2];
+        const month = smashDate[1];
+        const year = smashDate[0];
+        // const vehicle = announcement.vehicle;
+        const image = announcement.image;
+        const date = `${day}/${month}/${year}`;
 
-//         const newAnnouncementHtml = `
-//             <div class="box" data-aos="fade-up">
-//             <div class="image">
-//                 <img src=${image} alt="">
-//                 <h3> <i class="fas fa-map-marker-alt"></i> ${announcement.endRoute} </h3>
-//             </div>
-//             <div class="content">
-//                 <div class="price"> ${announcement.price} </div>
-//                 <p>${announcement.startRoute} para ${announcement.endRoute}</p>
-//                 <div class="date">${date}</div>
-//                 <a href="#" class="btn"> Acessar</a>
-//             </div>
-//             </div>
-//         `
-//         divMyAnnouncements.innerHTML = divMyAnnouncements.innerHTML + newAnnouncementHtml;
-//     });
-// }
+        const newAnnouncementHtml = `
+            <div class="box" data-aos="fade-up">
+            <div class="image">
+                <img src=${image} alt="">
+                <h3> <i class="fas fa-map-marker-alt"></i> ${announcement.endRoute} </h3>
+            </div>
+            <div class="content">
+                <div class="price"> ${announcement.price} </div>
+                <p>${announcement.startRoute} para ${announcement.endRoute}</p>
+                <div class="date">${date}</div>
+                <a href="#" class="btn"> Acessar</a>
+            </div>
+            </div>
+        `
+        divMyAnnouncements.innerHTML = divMyAnnouncements.innerHTML + newAnnouncementHtml;
+    });
+}
 
-// // id do usuário
-// function getIdUser(){
-//     const userId = localStorage.getItem('id');
+// id do usuário
+function getIdUser(){
+    const userId = localStorage.getItem('id');
     
-//     return userId;
-// }
+    return userId;
+}
 
-// // comunicar com api
-// getMyAnnouncement();
-// async function getMyAnnouncement() {
-//     try{
-//         const userId = getIdUser();
+// comunicar com api
+getMyAnnouncement();
+async function getMyAnnouncement() {
+    try{
+        const userId = getIdUser();
 
-//         const endRoute = document.querySelector('#searchBox');
-//         const response = await fetch(`${baseUrl}announcement?endRoute=${endRoute}&userId=${userId}`,{
-//             method: "GET",
-//             headers: {
-//                 "Accept": "application/json",
-//                 "Content-Type": "application/json",
-//                 "Authorization": window.localStorage.getItem("token")
-//             }
-//         } 
-//         );
+        const endRoute = document.querySelector('#searchBox');
+        const response = await fetch(`${baseUrl}announcement?endRoute=${endRoute}&userId=${userId}`,{
+            method: "GET",
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+                "Authorization": window.localStorage.getItem("token")
+            }
+        } 
+        );
 
-//         const announcements = await response.json();
+        const announcements = await response.json();
 
-//         if (response.status === 200){
-//             //printar anuncios encontrados na tela
-//             fillScreen(announcements);
-//         } else {
-//             console.log(announcements);
-//         }
-// }   catch (error) {
-//         console.error(error.message);
-// }
-// }
+        if (response.status === 200){
+            //printar anuncios encontrados na tela
+            fillScreen(announcements);
+        } else {
+            console.log(announcements);
+        }
+}   catch (error) {
+        console.error(error.message);
+}
+}
 //fim integração da página
