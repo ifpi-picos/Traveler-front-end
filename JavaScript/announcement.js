@@ -109,13 +109,13 @@ function getIdUser(){
 }
 
 // comunicar com api
-getMyAnnouncement();
-async function getMyAnnouncement() {
+getMyAnnouncements();
+async function getMyAnnouncements() {
     try{
         const userId = getIdUser();
 
         const endRoute = document.querySelector('#searchBox');
-        const response = await fetch(`${baseUrl}announcement?endRoute=${endRoute}&userId=${userId}`,{
+        const response = await fetch(`${baseUrl}announcement?endRoute=${endRoute.value}&userId=${userId}`,{
             method: "GET",
             headers: {
                 "Accept": "application/json",
