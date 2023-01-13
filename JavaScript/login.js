@@ -104,4 +104,19 @@ EmailLogin.addEventListener("keyup", () => {
 
     }
 }
+let mostrarSenha = document.getElementById("mostrarsenha");
+let campoSenha = document.getElementById("senhalogin");
+let verificaBotao = false;
+mostrarSenha.addEventListener("click", function (event) {
+    event.preventDefault();
+    if (!verificaBotao) {
+        campoSenha.setAttribute("type", "text");
+        mostrarSenha.src = "img/eyeclose.svg";
+        verificaBotao = true;
+    } else {
+        campoSenha.setAttribute("type", "password");
+        mostrarSenha.src = "img/eyeopen.svg";
+        verificaBotao = false;
+    }
+});
 window.onload = init
