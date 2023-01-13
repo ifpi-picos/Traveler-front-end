@@ -60,13 +60,7 @@ function closeRemove() {
     element.classList.remove("show-create");
 }   
 
-//Integração da página
-const name = document.querySelector("#name");
-const socialLink = document.querySelector("#socialLink");
-const price = document.querySelector("#price");
-const date = document.querySelector("#date");
-const startRoute = document.querySelector("#startRoute");
-const endRoute = document.querySelector("#endRoute");
+//Integração da página, pegar meus anuncios
 
 const divMyAnnouncements = document.querySelector("#announcement");
 
@@ -137,4 +131,60 @@ async function getMyAnnouncements() {
         console.error(error.message);
 }
 }
-//fim integração da página
+//fim integração da página, pegar meus anuncios 
+
+//integração da página, criar anuncio - wesley
+
+//FALTA FAZER TUDO PARA ADICIONAR A IMAGEM!
+
+// const name = document.querySelector("#name");
+// const socialLink = document.querySelector("#socialLink");
+// const price = document.querySelector("#price");
+// const date = document.querySelector("#date");
+// const startRoute = document.querySelector("#startRoute");
+// const endRoute = document.querySelector("#endRoute");
+
+// async function addAnnouncement() {
+//     const name = name.value;
+//     const socialLink = socialLink.value;
+//     const price = price.value;
+//     const date = date.value;
+//     const startRoute = startRoute.value;
+//     const endRoute = endRoute.value;
+
+//     try {
+//          const response = await fetch(`${baseUrl}announcements`, {
+//         method: 'POST',
+//         headers: {
+//             "content-Type":"application/json",
+//             Accept: "application/json",
+//             "Authorization": window.localStorage.getItem("token"),
+//         },
+//         credentials: "include",
+//         body: JSON.stringify({
+//             name,
+//             socialLink,
+//             price,
+//             date,
+//             startRoute,
+//             endRoute,
+//         })
+//     });
+
+//     const newAnnouncement = await response.json();
+
+//     if(response.status === 201) {
+//         //printar msg de sucesso
+//         alert(newAnnouncement.msg);
+//         //atualizar os anuncios na tela
+//         getMyAnnouncements();
+//     } else {
+//         console.error(`Erro no servidor: ${newAnnouncement}`)
+//     }
+//     } catch (error) {
+//         console.error(error.message);
+//     }
+   
+// }
+
+//integração da página, criar anuncio - fim
