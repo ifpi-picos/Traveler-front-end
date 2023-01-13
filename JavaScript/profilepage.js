@@ -2,7 +2,7 @@ const baseUrl = 'https://traveler-yd39.onrender.com/';
 // const baseUrl = 'http://localhost:3003/';
 
 
-if (localStorage.getItem('token') == null) {
+ if (localStorage.getItem('token') == null) {
     alert("Você precisa estar logado para ter acesso a esta página.");
     window.location.href = `https://traveler-io.netlify.app/`;
 }   
@@ -98,9 +98,8 @@ async function getUser() {
     const user = await resp.json();
 
     // Printar imagem na tela
-    fillScreenImage(user.image);
+    fillScreenImage(user.image); 
 }
-
 // popup image
 //Atualizar imagem
 async function updateImage() {
@@ -145,5 +144,3 @@ function closeDelete() {
     var element = document.getElementById("delete");
     element.classList.remove("show-delete");
 }   
-
-
