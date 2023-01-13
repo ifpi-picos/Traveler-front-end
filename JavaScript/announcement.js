@@ -143,6 +143,7 @@ async function getMyAnnouncements() {
 // const date = document.querySelector("#date");
 // const startRoute = document.querySelector("#startRoute");
 // const endRoute = document.querySelector("#endRoute");
+// const image = document.querySelector("#image")
 
 // async function addAnnouncement() {
 //     const name = name.value;
@@ -153,7 +154,11 @@ async function getMyAnnouncements() {
 //     const endRoute = endRoute.value;
 
 //     try {
-//          const response = await fetch(`${baseUrl}announcements`, {
+
+//      let data = new FormData();
+//      data.append('image', element.files[0]);
+
+//      const response = await fetch(`${baseUrl}announcements`, {
 //         method: 'POST',
 //         headers: {
 //             "content-Type":"application/json",
@@ -168,6 +173,7 @@ async function getMyAnnouncements() {
 //             date,
 //             startRoute,
 //             endRoute,
+//             data,
 //         })
 //     });
 
