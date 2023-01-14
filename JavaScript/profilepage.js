@@ -146,7 +146,8 @@ async function fillUserData() {
             'Authorization': localStorage.getItem("token")
         }
     });
-    const user = await resp.json();    
+    const user = await resp.json();
+    const userName = user.name; 
     document.querySelector(('#userTitle').textContend = userName)
 };
 
