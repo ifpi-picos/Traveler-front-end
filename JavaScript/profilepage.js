@@ -52,6 +52,13 @@ themeBtn.onclick = () => {
 
 const divAvatarUser = document.querySelector('#avatarUser');
 
+let userTitle = document.querySelector('#userTitle')
+//let userName = document.querySelector('#userTitle')
+//let userEmail = document.querySelector('#userTitle')
+//let userState = document.querySelector('#userTitle')
+//let userCity = document.querySelector('#userTitle')
+
+
 // id do usuário
 function getIdUser() {
     const id = localStorage.getItem('id');
@@ -96,9 +103,17 @@ async function getUser() {
         }
     });
     const user = await resp.json();
+    return user;
+    
+    //console.log(user)
     // Printar imagem na tela
-    fillScreenImage(user.image);
+    //fillScreenImage(user.image);
 }
+function fillScreenUserData(user){
+    userTitle = innerHTML(`<h2 id = "userTitle">${user.name}</h2>`);
+    return userTitle;
+}
+
 // popup image
 //Atualizar imagem
 async function updateImage() {
@@ -132,7 +147,6 @@ function closeModal() {
     var element = document.getElementById("modal");
     element.classList.remove("show-modal");
 }
-
 
 // popup delete account
 function showDelete() {
