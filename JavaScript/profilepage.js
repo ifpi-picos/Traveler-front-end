@@ -103,7 +103,7 @@ async function getUser() {
         }
     });
     const user = await resp.json();
-    return user;
+    return user
     
     //console.log(user)
     // Printar imagem na tela
@@ -113,7 +113,7 @@ function fillScreenUserData(user){
     userTitle = innerHTML(`<h2 id = "userTitle">${user.name}</h2>`);
     return userTitle;
 }
-
+fillScreenUserData(getUser());
 // popup image
 //Atualizar imagem
 async function updateImage() {
