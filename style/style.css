@@ -1216,7 +1216,11 @@ section {
     outline: none;
     margin-top: 2.1rem;
 }
-
+.listadeavisos{
+    list-style-type: none;
+    list-style-image: none;
+    list-style-position: outside;
+}
 
 
 
