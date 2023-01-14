@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,35 +10,44 @@
     <script src="../JavaScript/cadastrar.js" defer></script>
     <title>Traveler</title>
 </head>
+
 <body>
     <div class="main-login">
         <div class="left-login">
             <h1>Seus primeiros passos!</h1>
             <img class="img-viagens" src="/img/viagens.svg" alt="">
-     </div>
-     <div class="right-login">
-        <div class="card-login">
-            <h1>TRAVELER</h1>
-            <div class="textefild">
-                <label id="labelNome"  for="usuario">Nome</label>
-                <input id="nome" type="text" name="usuario" placeholder="Nome">
-            </div>
-            <div class="textefild">
-                <label id="labelUsuario"  for="E-mail">E-mail</label>
-                <input id="email" type="text" name="E-mail" placeholder="E-mail">
-            </div>
-            <div class="textefild">
-                <label id="labelSenha"  for="senha">Senha</label>
-                <input id="senha" type="password" name="senha" placeholder="senha">
-            </div>
-            <div class="textefild">
-                <label id="labelConfirmarSenha"  for="senha">Confirmar Senha</label>
-                <input id="confirmarSenha" type="password" name="senha" placeholder="senha">    
-            </div>
-            <button onclick="cadastrar()" class="btn-login">Cadastrar</button>
-            <p>Já tenho uma conta! <a href="/index.html"> Voltar</a></p>
         </div>
-     </div>
-  </div>
+        <div class="right-login">
+            <div class="card-login">
+                <h1>TRAVELER</h1>
+                <div class="textefild">
+                    <label id="labelNome" for="usuario">Nome</label>
+                    <input id="nome" type="text" name="usuario" placeholder="Nome">
+                </div>
+                <div class="textefild">
+                    <label id="labelUsuario" for="E-mail">E-mail</label>
+                    <input id="email" type="text" name="E-mail" placeholder="E-mail">
+                </div>
+                <div class="textefild">
+                    <label id="labelSenha" for="senha">Senha</label>
+                    <input id="senha" type="password" name="senha" placeholder="senha">
+                    <div class="avisos">
+                        <ul>
+                            <li id="maiuscula">Pelo menos uma letra maiúscula</li>
+                            <li id="especial">Pelo menos um caractere especial</li>
+                            <li id="numero">Pelo menos um número</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="textefild">
+                    <label id="labelConfirmarSenha" for="senha">Confirmar Senha</label>
+                    <input id="confirmarSenha" type="password" name="senha" placeholder="senha">
+                </div>
+                <button onclick="cadastrar()" class="btn-login">Cadastrar</button>
+                <p>Já tenho uma conta! <a href="/index.html"> Voltar</a></p>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
