@@ -147,8 +147,8 @@ async function fillUserData() {
         }
     });
     const user = await resp.json();    
-    userTitle.innerHTML(`<h2 id = "userTitle">${user.name}</h2>`);
-}
+    document.querySelector(('#userTitle').textContend = userName)
+};
 
 function closeModal() {
     var element = document.getElementById("modal");
