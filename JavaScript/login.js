@@ -13,94 +13,94 @@ EmailLogin.addEventListener("keyup", () => {
     } else {
         labelEmailLogin.setAttribute("style", "color: green");
     }
-  });
-  senhalogin.addEventListener("keyup", () => {
+});
+senhalogin.addEventListener("keyup", () => {
     if (validatePassword(senhalogin.value) !== true) {
         labelsenhalogin.setAttribute("style", "color: red");
     } else {
         labelsenhalogin.setAttribute("style", "color: green");
     }
-  });
-  function validateEmail(email) {
+});
+function validateEmail(email) {
     let valemail = /^[\w-\.]+@([\w-]+\.)+[\w-]{3,3}$/g;
-  
-    return valemail.test(email);
-  }
-  function validatePassword(Password) {
-    let valpass =
-      /(?=^.{8,}$)((?=.*\d)(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/g;
-  
-    return valpass.test(Password);
-  }
 
-  function setUserData(userData) {
+    return valemail.test(email);
+}
+function validatePassword(Password) {
+    let valpass =
+        /(?=^.{8,}$)((?=.*\d)(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/g;
+
+    return valpass.test(Password);
+}
+
+function setUserData(userData) {
     localStorage.setItem("id", userData.id);
     localStorage.setItem("email", userData.email);
     localStorage.setItem("name", userData.name);
 
     return;
-  }
+}
 
-  function setToken(token) {
+function setToken(token) {
     localStorage.setItem("token", token);
 
     return;
-  }
+}
 
 
-  async function init () {
+async function init() {
     const inputEmail = document.querySelector("#EmailLogin")
     const senhalogin = document.querySelector("#senhalogin")
     const submitBuutton = document.querySelector("#button")
-    
-    const errorHandler = () =>{
+
+    const errorHandler = () => {
         submitBuutton.classList.remove("success")
         submitBuutton.classList.add("error")
         submitBuutton.textContent = "error"
     }
 
-    const successHandler = ()=>{
+    const successHandler = () => {
         submitBuutton.classList.remove("error")
         submitBuutton.classList.add("success")
         submitBuutton.textContent = "sent!"
     }
-    if(submitBuutton){
-            submitBuutton.addEventListener("click",async (event)=>{
-                if (validatePassword(senhalogin.value) === true && validateEmail(EmailLogin.value) === true) {
-                    submitBuutton.textContent = "...Loading"
-                    // event.preventDefault()
+    if (submitBuutton) {
+        submitBuutton.addEventListener("click", async (event) => {
+            if (validatePassword(senhalogin.value) === true && validateEmail(EmailLogin.value) === true) {
+                submitBuutton.textContent = "...Loading"
+                // event.preventDefault()
 
-                    await fetch(`${baseUrl}authentication/login`,{
-                        method: 'POST',
-                        headers: {
-                            "content-Type":"application/json",
-                            Accept: "application/json",
-                        },
-                        credentials: "include",
-                        body: JSON.stringify({
-                            email: inputEmail.value,
-                            password:senhalogin.value
-                        })
-                        
-                    }).then(async (response) => {
-                        if(response.status!== 200){
-                            console.log(response)
-                            return  errorHandler();
-                        }
-                        const { token, userData } = await response.json()
-                        setToken(token);
-                        document.cookie = token;
-                        
-                        setUserData(userData);
-                        successHandler()
-                        window.location = "/pages/homepage.html"
-                    }).catch(()=>{
-                        errorHandler();
+                await fetch(`${baseUrl}authentication/login`, {
+                    method: 'POST',
+                    headers: {
+                        "content-Type": "application/json",
+                        Accept: "application/json",
+                    },
+                    credentials: "include",
+                    body: JSON.stringify({
+                        email: inputEmail.value,
+                        password: senhalogin.value
                     })
-                } else {
+
+                }).then(async (response) => {
+                    if (response.status !== 200) {
+                        console.log(response)
+                        return errorHandler();
+                    }
+                    const { token, userData } = await response.json()
+                    setToken(token);
+                    document.cookie = token;
+
+                    setUserData(userData);
+                    successHandler()
+                    window.location = "/pages/homepage.html"
+                }).catch(() => {
                     errorHandler();
-                }
-            })
+                })
+            } else {
+                errorHandler();
+            }
+        })
 
     }
 }

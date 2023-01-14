@@ -2,14 +2,14 @@ const baseUrl = 'https://traveler-yd39.onrender.com/';
 // const baseUrl = 'http://localhost:3003/';
 
 
- if (localStorage.getItem('token') == null) {
+if (localStorage.getItem('token') == null) {
     alert("Você precisa estar logado para ter acesso a esta página.");
     window.location.href = `https://traveler-io.netlify.app/`;
-}   
+}
 
 let navbar = document.querySelector('.navbar')
 
-document.querySelector('#menu-btn').onclick = () =>{
+document.querySelector('#menu-btn').onclick = () => {
     navbar.classList.toggle('active');
     loginForm.classList.remove('active');
     searchForm.classList.remove('active');
@@ -17,7 +17,7 @@ document.querySelector('#menu-btn').onclick = () =>{
 
 let loginForm = document.querySelector('.login-form')
 
-document.querySelector('#login-btn').onclick = () =>{
+document.querySelector('#login-btn').onclick = () => {
     loginForm.classList.toggle('active');
     navbar.classList.remove('active');
     searchForm.classList.remove('active');
@@ -25,13 +25,13 @@ document.querySelector('#login-btn').onclick = () =>{
 
 let searchForm = document.querySelector('.search-form')
 
-document.querySelector('#search-btn').onclick = () =>{
+document.querySelector('#search-btn').onclick = () => {
     searchForm.classList.toggle('active');
     navbar.classList.remove('active');
     loginForm.classList.remove('active');
 }
 
-window.onscroll = () =>{
+window.onscroll = () => {
     navbar.classList.remove('active');
     loginForm.classList.remove('active');
     searchForm.classList.remove('active');
@@ -39,12 +39,12 @@ window.onscroll = () =>{
 
 let themeBtn = document.querySelector('#theme-btn');
 
-themeBtn.onclick = () =>{
+themeBtn.onclick = () => {
     themeBtn.classList.toggle('fa-sun');
 
-    if(themeBtn.classList.contains('fa-sun')){
+    if (themeBtn.classList.contains('fa-sun')) {
         document.body.classList.add('active');
-    }else{
+    } else {
         document.body.classList.remove('active');
     }
 
@@ -53,15 +53,15 @@ themeBtn.onclick = () =>{
 const divAvatarUser = document.querySelector('#avatarUser');
 
 // id do usuário
-function getIdUser(){
+function getIdUser() {
     const id = localStorage.getItem('id');
-    
+
     return id;
 }
 
 // coloca a imagem do usuario
 function fillScreenImage(imageUrl) {
-    if (imageUrl){
+    if (imageUrl) {
         const newAvatarUser = `
             <img src="${imageUrl}" alt="" id="image">
             <label class="fas fa-image" for="picture_image" id="label_image_profile">
@@ -96,9 +96,8 @@ async function getUser() {
         }
     });
     const user = await resp.json();
-
     // Printar imagem na tela
-    fillScreenImage(user.image); 
+    fillScreenImage(user.image);
 }
 // popup image
 //Atualizar imagem
@@ -107,7 +106,7 @@ async function updateImage() {
 
     let data = new FormData();
     data.append('image', element.files[0]);
-    
+
     // pegar id do user
     const idUser = getIdUser();
 
@@ -123,10 +122,10 @@ async function updateImage() {
     data = null;
 
     const imageLink = await resp.json();
-    
+
     //Printar imagem na tela
     fillScreenImage(imageLink.image);
-    
+
 }
 
 function closeModal() {
@@ -143,4 +142,5 @@ function showDelete() {
 function closeDelete() {
     var element = document.getElementById("delete");
     element.classList.remove("show-delete");
-}   
+}
+

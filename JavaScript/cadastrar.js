@@ -10,6 +10,11 @@ let labelSenha = document.querySelector("#labelSenha");
 let confirmarSenha = document.querySelector("#confirmarSenha");
 let labelConfirmarSenha = document.querySelector("#labelConfirmarSenha");
 
+let maiuscula = document.querySelector("#maiuscula");
+let especial = document.querySelector("#especial");
+let numero = document.querySelector("#numero");
+
+
 nome.addEventListener("keyup", () => {
   if (validateUser(nome.value) !== true) {
     labelNome.setAttribute("style", "color: red");
@@ -45,12 +50,45 @@ function validateEmail(email) {
 
   return valemail.test(email);
 }
-function validatePassword(Password) {
-  let valpass =
-    /(?=^.{8,}$)((?=.*\d)(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/g;
 
-  return valpass.test(Password);
+function hasUpperCase(password) {
+  if (/[A-Z]/.test(password)) {
+    maiuscula.setAttribute("style", "color:green");
+    return true;
+  } else {
+    maiuscula.setAttribute("style", "color:red");
+    return false;
+  }
 }
+
+function hasSpecialChar(password) {
+  if (/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+    especial.setAttribute("style", "color:green");
+    return true;
+  } else {
+    especial.setAttribute("style", "color:red");
+    return false;
+  }
+}
+
+function hasNumber(password) {
+  if (/[0-9]/.test(password)) {
+    numero.setAttribute("style", "color:green");
+    return true;
+  } else {
+    numero.setAttribute("style", "color:red");
+    return false;
+  }
+}
+
+function validatePassword(password) {
+  if (hasUpperCase(password) & hasSpecialChar(password) & hasNumber(password)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 function validateUser(User) {
   let valuser = /^[a-zA-Z0-9]([._-](?![._-])|[a-zA-Z0-9]){3,8}[a-zA-Z0-9]$/g;
 

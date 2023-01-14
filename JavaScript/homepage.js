@@ -17,7 +17,7 @@ const filterOnlyEndRoute = document.querySelector('#searchBox')
 
 //pegar e filtrar anuncios (integraçao)
 async function getAnnouncements() {
-    try{
+    try {
         const date = filterDate.value;
         let endRoute = filterEndRoute.value;
         const startRoute = filterStartRoute.value;
@@ -26,27 +26,27 @@ async function getAnnouncements() {
             endRoute = filterOnlyEndRoute.value;
         }
 
-        const response = await fetch(`${baseUrl}announcement?date=${date}&endRoute=${endRoute}&startRoute=${startRoute}`,{
+        const response = await fetch(`${baseUrl}announcement?date=${date}&endRoute=${endRoute}&startRoute=${startRoute}`, {
             method: "GET",
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json",
                 "Authorization": window.localStorage.getItem("token")
             }
-        } 
+        }
         );
 
         const announcements = await response.json();
 
-        if (response.status === 200){
+        if (response.status === 200) {
             //printar anuncios encontrados na tela
             fillScreen(announcements);
         } else {
             console.log(announcements);
         }
-}   catch (error) {
+    } catch (error) {
         console.error(error.message);
-}
+    }
 }
 
 //printar anuncios encontrados na tela
@@ -85,7 +85,7 @@ function fillScreen(announcements) {
 
 let navbar = document.querySelector('.navbar')
 
-document.querySelector('#menu-btn').onclick = () =>{
+document.querySelector('#menu-btn').onclick = () => {
     navbar.classList.toggle('active');
     loginForm.classList.remove('active');
     searchForm.classList.remove('active');
@@ -93,7 +93,7 @@ document.querySelector('#menu-btn').onclick = () =>{
 
 let loginForm = document.querySelector('.login-form')
 
-document.querySelector('#login-btn').onclick = () =>{
+document.querySelector('#login-btn').onclick = () => {
     loginForm.classList.toggle('active');
     navbar.classList.remove('active');
     searchForm.classList.remove('active');
@@ -101,13 +101,13 @@ document.querySelector('#login-btn').onclick = () =>{
 
 let searchForm = document.querySelector('.search-form')
 
-document.querySelector('#search-btn').onclick = () =>{
+document.querySelector('#search-btn').onclick = () => {
     searchForm.classList.toggle('active');
     navbar.classList.remove('active');
     loginForm.classList.remove('active');
 }
 
-window.onscroll = () =>{
+window.onscroll = () => {
     navbar.classList.remove('active');
     loginForm.classList.remove('active');
     searchForm.classList.remove('active');
@@ -115,12 +115,12 @@ window.onscroll = () =>{
 
 let themeBtn = document.querySelector('#theme-btn');
 
-themeBtn.onclick = () =>{
+themeBtn.onclick = () => {
     themeBtn.classList.toggle('fa-sun');
 
-    if(themeBtn.classList.contains('fa-sun')){
+    if (themeBtn.classList.contains('fa-sun')) {
         document.body.classList.add('active');
-    }else{
+    } else {
         document.body.classList.remove('active');
     }
 
