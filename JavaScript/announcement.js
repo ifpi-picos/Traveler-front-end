@@ -135,23 +135,26 @@ async function getMyAnnouncements() {
 
 //integração da página, criar anuncio - wesley
 
-//FALTA FAZER TUDO PARA ADICIONAR A IMAGEM!
+//FALTA TESTAR!
 
-// const name = document.querySelector("#name");
+// const licensePlate = document.querySelector("#licensePlate");
 // const socialLink = document.querySelector("#socialLink");
 // const price = document.querySelector("#price");
 // const date = document.querySelector("#date");
+// const vehicle = document.querySelector("#vehicle");
 // const startRoute = document.querySelector("#startRoute");
 // const endRoute = document.querySelector("#endRoute");
-// const image = document.querySelector("#image")
+// const image = document.querySelector("#image");
 
+// Chamar api para cadastrar anuncio
 // async function addAnnouncement() {
-//     const name = name.value;
+//     const licensePlate = licensePlate.value;
 //     const socialLink = socialLink.value;
 //     const price = price.value;
 //     const date = date.value;
 //     const startRoute = startRoute.value;
 //     const endRoute = endRoute.value;
+//     const vehicle = vehicle.value;
 
 //     try {
 
@@ -167,7 +170,8 @@ async function getMyAnnouncements() {
 //         },
 //         credentials: "include",
 //         body: JSON.stringify({
-//             name,
+//             vehicle,
+//             licensePlate,
 //             socialLink,
 //             price,
 //             date,
@@ -194,3 +198,11 @@ async function getMyAnnouncements() {
 // }
 
 //integração da página, criar anuncio - fim
+
+//remover td do local storage ao deslogar do sistema
+function logout() {
+    window.localStorage.removeItem('token');
+    window.localStorage.removeItem('id');
+    window.localStorage.removeItem('name');
+    window.localStorage.removeItem('email');
+}

@@ -126,6 +126,7 @@ themeBtn.onclick = () => {
 
 };
 
+//remover td do local storage ao deslogar do sistema
 function logout() {
     window.localStorage.removeItem('token');
     window.localStorage.removeItem('id');

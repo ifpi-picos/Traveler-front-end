@@ -167,3 +167,10 @@ function closeDelete() {
     element.classList.remove("show-delete");
 }
 
+//remover td do local storage ao deslogar do sistema
+function logout() {
+    window.localStorage.removeItem('token');
+    window.localStorage.removeItem('id');
+    window.localStorage.removeItem('name');
+    window.localStorage.removeItem('email');
+}

@@ -48,7 +48,7 @@
         <div class="login-form">
             <a href="/pages/profilepage.html">Perfil</a>
             <a href="/pages/announcementpage.html">Minhas Viagens</a>
-            <a href="/index.html">Sair</a>
+            <a onclick="logout()" href="/index.html">Sair</a>
         </div>
 
 
@@ -153,13 +153,23 @@
         <div class="delete" id="formCreate">
             <div class="formAdd">
                 <form action="" class="form-profile">
-                    <div class="input-account">
+                    <!-- <div class="input-account">
                         <label>Nome do motorista</label>
                         <input id="name" type="text" placeholder="Nome" value="Alessandro Silva">
-                    </div>
+                    </div> -->
                     <div class="input-account">
                         <label>Link de contato</label>
-                        <input id="socialLink" type="text" placeholder="E-mail" value="/whatsapp.com">
+                        <input id="socialLink" type="text" placeholder="Whatsapp: (99) 99999-9999">
+                    </div>
+                    <div class="column">
+                        <div class="input-account">
+                            <label>Placa do veículo</label>
+                            <input id="startRoute" type="text" placeholder="AAA0A00">
+                        </div>
+                        <div class="input-account">
+                            <label>Marca do veículo</label>
+                            <input id="endRoute" type="text" placeholder="Honda">
+                        </div>
                     </div>
                     <div class="column">
                         <div class="input-account">
