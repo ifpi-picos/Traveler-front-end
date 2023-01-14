@@ -102,18 +102,10 @@ async function getUser() {
             'Authorization': localStorage.getItem("token")
         }
     });
-    const user = await resp.json();
-    return user
-    
-    //console.log(user)
-    // Printar imagem na tela
-    //fillScreenImage(user.image);
+    const user = await resp.json();    
+    //Printar imagem na tela
+    fillScreenImage(user.image);
 }
-function fillScreenUserData(user){
-    userTitle = innerHTML(`<h2 id = "userTitle">${user.name}</h2>`);
-    return userTitle;
-}
-fillScreenUserData(getUser());
 // popup image
 //Atualizar imagem
 async function updateImage() {
@@ -141,6 +133,21 @@ async function updateImage() {
     //Printar imagem na tela
     fillScreenImage(imageLink.image);
 
+}
+
+fillUserData();
+async function fillUserData() {
+    const idUser = getIdUser();
+    const resp = await fetch(`${baseUrl}users/${idUser}`, {
+        method: 'GET',
+        headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            'Authorization': localStorage.getItem("token")
+        }
+    });
+    const user = await resp.json();    
+    userTitle.innerHTML(`<h2 id = "userTitle">${user.name}</h2>`);
 }
 
 function closeModal() {
