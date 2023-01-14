@@ -134,22 +134,23 @@ async function updateImage() {
     fillScreenImage(imageLink.image);
 
 }
-
-fillUserData();
-async function fillUserData() {
-    const idUser = getIdUser();
-    const resp = await fetch(`${baseUrl}users/${idUser}`, {
-        method: 'GET',
-        headers: {
-            "Accept": "application/json",
-            "Content-Type": "application/json",
-            'Authorization': localStorage.getItem("token")
-        }
-    });
-    const user = await resp.json();
-    const userName = user.name; 
-    document.querySelector(('#userTitle').textContend = userName)
-};
+window.addEventListener('load', function() {
+    fillUserData();
+    async function fillUserData() {
+        const idUser = getIdUser();
+        const resp = await fetch(`${baseUrl}users/${idUser}`, {
+            method: 'GET',
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+                'Authorization': localStorage.getItem("token")
+            }
+        });
+        const user = await resp.json();
+        const userName = user.name; 
+        document.querySelector(('#userTitle').textContend = userName)
+    };
+});
 
 function closeModal() {
     var element = document.getElementById("modal");
