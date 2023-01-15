@@ -91,7 +91,7 @@ function fillScreenImage(imageUrl) {
 }
 
 //pega o usuário da api
-getUser();
+//getUser();
 async function getUser() {
     const idUser = getIdUser();
     const resp = await fetch(`${baseUrl}users/${idUser}`, {
@@ -103,6 +103,7 @@ async function getUser() {
         }
     });
     const user = await resp.json();   
+    console.log(user)
     return user; 
     //Printar imagem na tela
     //fillScreenImage(user.image);
