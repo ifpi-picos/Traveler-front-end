@@ -138,6 +138,7 @@ async function updateImage() {
 }
 fillUserData(getUser())
 function fillUserData(user){
+    console.log(user)
     document.getElementById("userTitle").innerHTML = user.name;
     document.getElementById("username").value = user.name;
     document.getElementById("useremail").value = user.email;
