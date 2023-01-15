@@ -103,7 +103,7 @@ async function getUser() {
         }
     });
     const user = await resp.json();   
-    console.log(user)
+    console.log(`Olá, estou dentro da função getUser ->${user}`)
     return user; 
     //Printar imagem na tela
     //fillScreenImage(user.image);
@@ -138,7 +138,7 @@ async function updateImage() {
 }
 fillUserData(getUser())
 function fillUserData(user){
-    console.log(user)
+    console.log(`Olá, estou dentro da função fillUserData -> ${user}`)
     document.getElementById("userTitle").innerHTML = user.name;
     document.getElementById("username").value = user.name;
     document.getElementById("useremail").value = user.email;
