@@ -102,9 +102,10 @@ async function getUser() {
             'Authorization': localStorage.getItem("token")
         }
     });
-    const user = await resp.json();    
+    const user = await resp.json();   
+    return user; 
     //Printar imagem na tela
-    fillScreenImage(user.image);
+    //fillScreenImage(user.image);
 }
 // popup image
 //Atualizar imagem
@@ -134,23 +135,13 @@ async function updateImage() {
     fillScreenImage(imageLink.image);
 
 }
-window.addEventListener('load', function() {
-    fillUserData();
-    async function fillUserData() {
-        const idUser = getIdUser();
-        const resp = await fetch(`${baseUrl}users/${idUser}`, {
-            method: 'GET',
-            headers: {
-                "Accept": "application/json",
-                "Content-Type": "application/json",
-                'Authorization': localStorage.getItem("token")
-            }
-        });
-        const user = await resp.json();
-        const userName = user.name; 
-        document.querySelector(('#userTitle').textContend = userName)
-    };
-});
+fillUserData(getUser())
+function fillUserData(user){
+    document.getElementById("userTitle").innerHTML = user.name;
+    document.getElementById("username").value = user.name;
+    document.getElementById("useremail").value = user.email;
+
+}
 
 function closeModal() {
     var element = document.getElementById("modal");
