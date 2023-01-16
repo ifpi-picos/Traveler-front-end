@@ -96,9 +96,9 @@ async function getUser() {
         }
     });
     const user = await resp.json();
-    console.log(`Olá, estou dentro da função getUser ->${user}`)
     //Printar imagem na tela
     fillScreenImage(user.image);
+    console.log(`Olá, estou dentro da função getUser ->${user}`)
     return user;
 }
 // popup image
