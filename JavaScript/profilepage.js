@@ -98,8 +98,7 @@ async function getUser() {
     const user = await resp.json();
     //Printar imagem na tela
     fillScreenImage(user.image);
-    console.log(`Olá, estou dentro da função getUser ->${user}`)
-    return user;
+    fillUserData();
 }
 // popup image
 //Atualizar imagem
@@ -130,27 +129,13 @@ async function updateImage() {
 
 }
 function fillUserData() {
-    const idUser = getIdUser()
-    fetch(`${baseUrl}users/image/${idUser}`)
-        .then(response => response.json())
-        .then(data => {
-            const userTitle = document.querySelector("#userTitle");
-            //const email = document.querySelector("#email");
-            userTitle.innerHTML = data.name;
-            //email.innerHTML = data.email;
-        });
+    const userTitle = document.querySelector("#userTitle");
+    const email = document.querySelector("#useremail");
+    const userName = document.querySelector("username")
+    userTitle.innerHTML = localStorage.getItem("name");
+    userName.innerHTML = localStorage.getItem("name")
+    email.innerHTML = localStorage.getItem("email");
 }
-fillUserData()
-
-// fillUserData()
-// function fillUserData(){
-//     user = getUser()
-//     console.log(`Olá, estou dentro da função fillUserData -> ${user}`)
-//     document.getElementById("userTitle").innerHTML = user.name;
-//     document.getElementById("username").value = user.name;
-//     document.getElementById("useremail").value = user.email;
-
-// }
 
 function closeModal() {
     var element = document.getElementById("modal");
