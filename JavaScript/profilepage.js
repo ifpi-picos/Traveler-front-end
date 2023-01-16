@@ -131,10 +131,10 @@ async function updateImage() {
 function fillUserData() {
     const userTitle = document.querySelector("#userTitle");
     const email = document.querySelector("#useremail");
-    const userName = document.querySelector("username")
+    const userName = document.querySelector("username");
     userTitle.innerHTML = localStorage.getItem("name");
-    userName.innerHTML = localStorage.getItem("name")
-    email.innerHTML = localStorage.getItem("email");
+    document.getElementById("username").value = localStorage.getItem("name");
+    document.getElementById("useremail").value = localStorage.getItem("email");
 }
 
 function closeModal() {
