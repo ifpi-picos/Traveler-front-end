@@ -52,17 +52,10 @@ themeBtn.onclick = () => {
 
 const divAvatarUser = document.querySelector('#avatarUser');
 
-let userTitle = document.querySelector('#userTitle')
-//let userName = document.querySelector('#userTitle')
-//let userEmail = document.querySelector('#userTitle')
-//let userState = document.querySelector('#userTitle')
-//let userCity = document.querySelector('#userTitle')
-
 
 // id do usuário
 function getIdUser() {
     const id = localStorage.getItem('id');
-
     return id;
 }
 
@@ -91,7 +84,7 @@ function fillScreenImage(imageUrl) {
 }
 
 //pega o usuário da api
-//getUser();
+getUser();
 async function getUser() {
     const idUser = getIdUser();
     const resp = await fetch(`${baseUrl}users/${idUser}`, {
@@ -103,10 +96,10 @@ async function getUser() {
         }
     });
     const user = await resp.json();   
-    console.log(`Olá, estou dentro da função getUser ->${user}`)
-    return user; 
+    console.log(`Olá, estou dentro da função getUser ->${user}`) 
     //Printar imagem na tela
-    //fillScreenImage(user.image);
+    fillScreenImage(user.image);
+    return user;
 }
 // popup image
 //Atualizar imagem
@@ -136,15 +129,25 @@ async function updateImage() {
     fillScreenImage(imageLink.image);
 
 }
-fillUserData()
-function fillUserData(){
-    user = getUser()
-    console.log(`Olá, estou dentro da função fillUserData -> ${user}`)
-    document.getElementById("userTitle").innerHTML = user.name;
-    document.getElementById("username").value = user.name;
-    document.getElementById("useremail").value = user.email;
+fetch(`${baseUrl}users/image/${idUser}`)
+  .then(response => response.json())
+  .then(data => {
+    const userTitle = document.querySelector("#userTitle");
+    //const email = document.querySelector("#email");
+    userTitle.innerHTML = data.name;
+    //email.innerHTML = data.email;
+  });
 
-}
+
+// fillUserData()
+// function fillUserData(){
+//     user = getUser()
+//     console.log(`Olá, estou dentro da função fillUserData -> ${user}`)
+//     document.getElementById("userTitle").innerHTML = user.name;
+//     document.getElementById("username").value = user.name;
+//     document.getElementById("useremail").value = user.email;
+
+// }
 
 function closeModal() {
     var element = document.getElementById("modal");
