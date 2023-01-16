@@ -136,8 +136,9 @@ async function updateImage() {
     fillScreenImage(imageLink.image);
 
 }
-fillUserData(getUser())
-function fillUserData(user){
+fillUserData()
+function fillUserData(){
+    user = getUser()
     console.log(`Olá, estou dentro da função fillUserData -> ${user}`)
     document.getElementById("userTitle").innerHTML = user.name;
     document.getElementById("username").value = user.name;
