@@ -95,8 +95,8 @@ async function getUser() {
             'Authorization': localStorage.getItem("token")
         }
     });
-    const user = await resp.json();   
-    console.log(`Olá, estou dentro da função getUser ->${user}`) 
+    const user = await resp.json();
+    console.log(`Olá, estou dentro da função getUser ->${user}`)
     //Printar imagem na tela
     fillScreenImage(user.image);
     return user;
@@ -129,15 +129,18 @@ async function updateImage() {
     fillScreenImage(imageLink.image);
 
 }
-fetch(`${baseUrl}users/image/${idUser}`)
-  .then(response => response.json())
-  .then(data => {
-    const userTitle = document.querySelector("#userTitle");
-    //const email = document.querySelector("#email");
-    userTitle.innerHTML = data.name;
-    //email.innerHTML = data.email;
-  });
-
+function fillUserData() {
+    const idUser = getIdUser()
+    fetch(`${baseUrl}users/image/${idUser}`)
+        .then(response => response.json())
+        .then(data => {
+            const userTitle = document.querySelector("#userTitle");
+            //const email = document.querySelector("#email");
+            userTitle.innerHTML = data.name;
+            //email.innerHTML = data.email;
+        });
+}
+fillUserData()
 
 // fillUserData()
 // function fillUserData(){
