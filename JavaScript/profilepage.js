@@ -134,11 +134,11 @@ yesButton.onclick = function () {
     const userpass = document.querySelector("#passDel")
     deleteAcc(useremail)
 }
-async function deleteAcc(email) {
-    console.log(email);
+function deleteAcc(email) {
+    console.log(email.value);
     console.log(localStorage.getItem("email"))
 
-    if (email == localStorage.getItem("email")) {
+    if (email.value == localStorage.getItem("email")) {
         const idUser = getIdUser();
         fetch(`${baseUrl}users/${idUser}`, {
             method: "DELETE",
