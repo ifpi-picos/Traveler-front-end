@@ -134,10 +134,6 @@ yesButton.onclick = function () {
     const userpass = document.querySelector("#passDel")
     deleteAcc(useremail)
 }
-function clearData(){
-    document.querySelector("#emailDel").value = "";
-    document.querySelector("#nome").value = "";
-}
 async function deleteAcc(email) {
     if (email == localStorage.getItem("email")) {
         const idUser = getIdUser();
@@ -164,7 +160,6 @@ async function deleteAcc(email) {
             });
     } else {
         alert('Parece que você não digitou corretamente seu e-mail e senha.')
-        clearData()
     }
 }
 function fillUserData() {
