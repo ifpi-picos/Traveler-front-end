@@ -128,10 +128,47 @@ async function updateImage() {
     fillScreenImage(imageLink.image);
 
 }
+const yesButton = document.querySelector(".yes");
+yesButton.onclick = function () {
+    const useremail = document.querySelector("#emailDel")
+    const userpass = document.querySelector("#passDel")
+    deleteAcc(useremail)
+}
+function clearData(){
+    document.querySelector("#emailDel").value = "";
+    document.querySelector("#nome").value = "";
+}
+async function deleteAcc(email) {
+    if (email == localStorage.getItem("email")) {
+        const idUser = getIdUser();
+        fetch(`${baseUrl}users/${idUser}`, {
+            method: "DELETE",
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+                "Authorization": localStorage.getItem("token")
+            }
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Erro ao apagar usuário");
+                }
+                return response.json();
+            })
+            .then(data => {
+                alert('Foi bom enquanto durou :( ')
+                window.location.href = "/index.html";
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    } else {
+        alert('Parece que você não digitou corretamente seu e-mail e senha.')
+        clearData()
+    }
+}
 function fillUserData() {
     const userTitle = document.querySelector("#userTitle");
-    const email = document.querySelector("#useremail");
-    const userName = document.querySelector("username");
     userTitle.innerHTML = localStorage.getItem("name");
     document.getElementById("username").value = localStorage.getItem("name");
     document.getElementById("useremail").value = localStorage.getItem("email");
