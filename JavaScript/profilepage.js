@@ -130,13 +130,14 @@ async function updateImage() {
 }
 const yesButton = document.querySelector(".yes");
 yesButton.onclick = function () {
-    const imputEmail = document.querySelector("#emailDel")
-    const useremail = imputEmail.value;
-    const userpass = document.querySelector("#passDel")
-    deleteAcc(useremail)
+    const inputEmail = document.querySelector("#emailDel")
+    const userEmail = inputEmail.value;
+    const inputPass = document.querySelector("#passDel")
+    const userPass = inputPass.value;
+    deleteAcc(userEmail,userPass)
 }
-function deleteAcc(email) {
-    if (email == localStorage.getItem("email")) {
+function deleteAcc(email,pass) {
+    if (email == localStorage.getItem("email") && pass == localStorage("senha")) {
         const idUser = getIdUser();
         fetch(`${baseUrl}users/${idUser}`, {
             method: "DELETE",
