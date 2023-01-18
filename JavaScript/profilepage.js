@@ -136,9 +136,6 @@ yesButton.onclick = function () {
     deleteAcc(useremail)
 }
 function deleteAcc(email) {
-    console.log(email.value);
-    console.log(localStorage.getItem("email"))
-
     if (email == localStorage.getItem("email")) {
         const idUser = getIdUser();
         fetch(`${baseUrl}users/${idUser}`, {
@@ -150,20 +147,15 @@ function deleteAcc(email) {
             }
         })
             .then(response => {
-                if (!response.ok) {
+                if (response.ok) {
+                    alert('Foi bom enquanto durou :( ');
+                    window.location.href = "/index.html";
+                    return { status: data }
+                } else if (!response.ok) {
                     throw new Error("Erro ao apagar usuário");
                 }
-                return response.json();
-            })
-            .then(data => {
-                alert('Foi bom enquanto durou :( ')
-                window.location.href = "/index.html";
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    } else {
-        alert('Parece que você não digitou corretamente seu e-mail e senha.')
+            }
+            )
     }
 }
 function fillUserData() {
