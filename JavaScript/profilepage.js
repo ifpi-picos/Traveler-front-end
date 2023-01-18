@@ -137,7 +137,7 @@ yesButton.onclick = function () {
     deleteAcc(userEmail,userPass)
 }
 function deleteAcc(email,pass) {
-    if (email == localStorage.getItem("email") && pass == localStorage("senha")) {
+    if (email == localStorage.getItem("email") && pass == localStorage.getItem(pass)) {
         const idUser = getIdUser();
         fetch(`${baseUrl}users/${idUser}`, {
             method: "DELETE",

@@ -54,7 +54,12 @@ function validateEmail(email) {
 function hasUpperCase(password) {
   if (/[A-Z]/.test(password)) {
     maiuscula.setAttribute("style", "color:green");
-    return true;
+    return true;function limparCampos() {
+      document.querySelector("#nome").value = "";
+      document.querySelector("#email").value = "";
+      document.querySelector("#senha").value = "";
+      document.querySelector("#confirmarSenha").value = "";
+    }
   } else {
     maiuscula.setAttribute("style", "color:red");
     return false;
