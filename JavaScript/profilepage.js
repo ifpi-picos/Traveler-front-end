@@ -130,7 +130,8 @@ async function updateImage() {
 }
 const yesButton = document.querySelector(".yes");
 yesButton.onclick = function () {
-    const useremail = document.querySelector("#emailDel")
+    const imputEmail = document.querySelector("#emailDel")
+    const useremail = imputEmail.value;
     const userpass = document.querySelector("#passDel")
     deleteAcc(useremail)
 }
@@ -138,7 +139,7 @@ function deleteAcc(email) {
     console.log(email.value);
     console.log(localStorage.getItem("email"))
 
-    if (email.value == localStorage.getItem("email")) {
+    if (email == localStorage.getItem("email")) {
         const idUser = getIdUser();
         fetch(`${baseUrl}users/${idUser}`, {
             method: "DELETE",
