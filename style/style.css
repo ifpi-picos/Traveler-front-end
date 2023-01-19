@@ -740,6 +740,7 @@ section {
     border: 1px solid #333;
     cursor: pointer;
 }
+
 #label_image_profile .tooltipe {
     visibility: hidden;
     color: var(--text-color-1);
@@ -751,7 +752,7 @@ section {
     position: absolute;
     z-index: 1;
     top: -5px;
-  left: 105%;
+    left: 105%;
 }
 
 #label_image_profile:hover .tooltipe {
@@ -784,9 +785,6 @@ section {
     cursor: pointer;
 
 }
-
-.profile i:hover {}
-
 
 .wrapper {
     width: 100%;
@@ -1170,10 +1168,8 @@ section {
     transform: scale(1.0);
 }
 
-#formCreate{
-   
-}
-#formCreate .formAdd{
+
+#formCreate .formAdd {
     background-color: var(--bg-color-1);
     padding: 16px 24px;
     width: 700px;
@@ -1185,7 +1181,7 @@ section {
 
 
 
-#formCreate .formAdd p{
+#formCreate .formAdd p {
     color: var(--text-color-1);
     font-size: 1.5rem;
     /* padding-top: 1rem;   */
@@ -1194,11 +1190,12 @@ section {
 
 
 
-#formCreate .formAdd .buttons{
+#formCreate .formAdd .buttons {
     display: flex;
     justify-content: space-between;
 }
-#formCreate .formAdd .buttons .no{
+
+#formCreate .formAdd .buttons .no {
     width: 140px;
     font-size: 1.7rem;
     background: var(--red);
@@ -1208,7 +1205,8 @@ section {
     outline: none;
     margin-top: 2.1rem;
 }
-#formCreate .formAdd .buttons .yes{
+
+#formCreate .formAdd .buttons .yes {
     width: 140px;
     padding: 1rem 3rem;
     font-size: 1.7rem;
@@ -1220,17 +1218,13 @@ section {
     outline: none;
     margin-top: 2.1rem;
 }
-.listadeavisos{
+
+.listadeavisos {
     list-style-type: none;
     list-style-image: none;
     list-style-position: outside;
 }
 
-
-
-
-.form-announcement{
-}
 
 .form-announcement .input-account {
     width: 100%;
@@ -1268,7 +1262,8 @@ section {
     column-gap: 10px;
     padding-bottom: 2rem;
 }
-.form-announcement .input-account .announcement-image img{
+
+.form-announcement .input-account .announcement-image img {
     background-color: red;
     height: 100px;
     width: 100px;
@@ -1284,16 +1279,18 @@ section {
     padding-bottom: 2rem;
     align-items: center;
     text-align: center;
-    
+
 }
-.form-announcement .column-image img{
+
+.form-announcement .column-image img {
     height: 100px;
     width: 100px;
     border: 1px solid var(--bg-color-1);
     box-shadow: var(--box-shadow);
     object-fit: cover;
 }
-.form-announcement .column-image label{
+
+.form-announcement .column-image label {
     color: var(--text-color-1);
     font-size: 1.5rem;
     text-align: center;
@@ -1305,18 +1302,18 @@ section {
 /* aboutpage */
 
 
-.review .about-slider{
+.review .about-slider {
     box-shadow: var(--box-shadow);
 }
 
-.review .about-slider .slide{
+.review .about-slider .slide {
     background: var(--bg-color-1);
     border-radius: .5rem;
     text-align: center;
     padding: 3rem;
 }
 
-.review .about-slider .slide img{
+.review .about-slider .slide img {
     height: 10rem;
     width: 10rem;
     border-radius: 50%;
@@ -1324,21 +1321,21 @@ section {
     margin-bottom: .5rem;
 }
 
-.review .about-slider .slide h3{
+.review .about-slider .slide h3 {
     font-size: 2.5rem;
-    color:var(--text-color-1);
+    color: var(--text-color-1);
 }
 
-.review .about-slider .slide p{
+.review .about-slider .slide p {
     font-size: 1.6rem;
-    color:var(--text-color-2);
+    color: var(--text-color-2);
     line-height: 1.7;
     padding: 1rem 0;
 }
 
 
 
-.swiper-pagination-bullet-active{
+.swiper-pagination-bullet-active {
     background: var(--blue);
 }
 
@@ -1348,4 +1345,11 @@ section {
     color: var(--text-color-1);
     font-size: 4rem;
     padding-top: 6rem;
+}
+
+#mostrarsenha {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
 }
