@@ -88,7 +88,6 @@ function validatePassword(password) {
     return false;
   }
 }
-export{validatePassword};
 
 function validateUser(User) {
   let valuser = /^[a-zA-Z0-9]([._-](?![._-])|[a-zA-Z0-9]){3,8}[a-zA-Z0-9]$/g;

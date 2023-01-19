@@ -1,12 +1,11 @@
-import validatePassword from './cadastrar';
 const baseUrl = 'https://traveler-yd39.onrender.com/';
 // const baseUrl = 'http://localhost:3003/';
 
 
-// if (localStorage.getItem('token') == null) {
-//     alert("Você precisa estar logado para ter acesso a esta página.");
-//     window.location.href = `https://traveler-io.netlify.app/`;
-// }
+if (localStorage.getItem('token') == null) {
+    alert("Você precisa estar logado para ter acesso a esta página.");
+    window.location.href = `https://traveler-io.netlify.app/`;
+}
 
 let navbar = document.querySelector('.navbar')
 
@@ -161,6 +160,14 @@ function deleteAcc(email) {
     }
 }
 
+function validatePass(pass){
+    if(/^(?=.*[A-Z])(?=.*[!@#\$%\^&\*])(?=.*\d)[a-zA-Z0-9!@#\$%\^&\*]{8,}$/.test(pass)){
+        return true;
+    }else{
+        return false;
+    }
+}
+
 const alterButton = document.querySelector(".btn-profile");
 alterButton.onclick = function () {
     const inputOldPass = document.querySelector("#senha");
@@ -169,7 +176,7 @@ alterButton.onclick = function () {
     const oldPass = inputOldPass.value;
     const newPass = inputNewPass.value;
     const confirm = inputConfirm.value;
-    validatePassword(newPass);
+    validatePass(newPass);
     if (confirm != newPass) {
         alert("As senhas devem ser iguais");
         return;
