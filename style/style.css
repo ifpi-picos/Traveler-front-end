@@ -67,6 +67,7 @@
     justify-content: center;
     margin: 10px 0px;
     color: #000000de;
+    position: relative;
 }
 
 .textefild>input {
@@ -1350,6 +1351,6 @@ section {
 #mostrarsenha {
     position: absolute;
     right: 10px;
-    top: 10px;
+    top: 40px;
     cursor: pointer;
 }
