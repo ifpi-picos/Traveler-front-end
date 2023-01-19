@@ -1170,12 +1170,16 @@ section {
     transform: scale(1.0);
 }
 
-
+#formCreate{
+   
+}
 #formCreate .formAdd{
     background-color: var(--bg-color-1);
     padding: 16px 24px;
     width: 700px;
+    /* height: 90vh; */
     border-radius: 0.5rem;
+    padding-top: 10rem;
 }
 
 
@@ -1184,7 +1188,7 @@ section {
 #formCreate .formAdd p{
     color: var(--text-color-1);
     font-size: 1.5rem;
-    padding-top: 1rem; 
+    /* padding-top: 1rem;   */
 }
 
 
@@ -1225,31 +1229,72 @@ section {
 
 
 
-
-
-
-
-/* .delete-content .delete-itens .no {
-    width: 140px;
-    font-size: 1.7rem;
-    background: var(--red);
-    color: #fff;
-    cursor: pointer;
-    border-radius: .5rem;
-    outline: none;
-    margin-top: 2.1rem;
+.form-announcement{
 }
 
-.delete-content .delete-itens .yes {
-    width: 140px;
-    padding: 1rem 3rem;
-    font-size: 1.7rem;
-    border: 0px;
-    background: var(--blue);
-    color: #fff;
-    cursor: pointer;
-    border-radius: .5rem;
-    outline: none;
-    margin-top: 2.1rem;
+.form-announcement .input-account {
+    width: 100%;
+    margin-top: 20px;
 }
- */
+
+.input-account label {
+    color: var(--text-color-1);
+    font-size: 1.5rem;
+}
+
+.form-announcement .input-account input {
+    position: relative;
+    height: 40px;
+    width: 100%;
+    outline: none;
+    font-size: 1.5rem;
+    margin-top: 8px;
+    color: var(--text-color-1);
+    border: 1px solid #333;
+    border: 1px solid var(--bg-color-2);
+    border-radius: 6px;
+    padding: 0 15px;
+    background: var(--bg-color-2);
+
+}
+
+.form-announcement .input-account input:focus,
+.input-accountPassword input:focus {
+    border: 1px solid var(--blue);
+}
+
+.form-announcement .column {
+    display: flex;
+    column-gap: 10px;
+    padding-bottom: 2rem;
+}
+.form-announcement .input-account .announcement-image img{
+    background-color: red;
+    height: 100px;
+    width: 100px;
+    border: 1px solid var(--bg-color-1);
+    box-shadow: var(--box-shadow);
+    object-fit: cover;
+}
+
+
+.form-announcement .column-image {
+    display: flex;
+    column-gap: 10px;
+    padding-bottom: 2rem;
+    align-items: center;
+    text-align: center;
+    
+}
+.form-announcement .column-image img{
+    height: 100px;
+    width: 100px;
+    border: 1px solid var(--bg-color-1);
+    box-shadow: var(--box-shadow);
+    object-fit: cover;
+}
+.form-announcement .column-image label{
+    color: var(--text-color-1);
+    font-size: 1.5rem;
+    text-align: center;
+}
