@@ -130,14 +130,12 @@ async function updateImage() {
 }
 const yesButton = document.querySelector(".yes");
 yesButton.onclick = function () {
-    const inputEmail = document.querySelector("#emailDel")
+    const inputEmail = document.querySelector("#emailDel");
     const userEmail = inputEmail.value;
-    const inputPass = document.querySelector("#passDel")
-    const userPass = inputPass.value;
-    deleteAcc(userEmail,userPass)
+    deleteAcc(userEmail);
 }
-function deleteAcc(email,pass) {
-    if (email == localStorage.getItem("email") && pass == localStorage.getItem("#passDel")) {
+function deleteAcc(email) {
+    if (email == localStorage.getItem("email")) {
         const idUser = getIdUser();
         fetch(`${baseUrl}users/${idUser}`, {
             method: "DELETE",
@@ -157,6 +155,8 @@ function deleteAcc(email,pass) {
                 }
             }
             )
+    }else{
+        alert('Email ou senha inválidos')
     }
 }
 function fillUserData() {
