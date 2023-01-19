@@ -178,7 +178,7 @@ async function addAnnouncement() {
             body: data,
             headers: {
                 "Accept": "application/json",
-                // "Authorization": window.localStorage.getItem("token"),
+                "Authorization": window.localStorage.getItem("token"),
             },
         });
 
