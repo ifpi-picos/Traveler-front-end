@@ -739,7 +739,6 @@ section {
     background: var(--bg-color-2);
     color: var(--blue);
     border: 1px solid #333;
-    cursor: pointer;
 }
 
 #label_image_profile .tooltipe {
@@ -1295,7 +1294,10 @@ section {
     color: var(--text-color-1);
     font-size: 1.5rem;
     text-align: center;
+    cursor: pointer;
 }
+
+
 
 
 
@@ -1354,3 +1356,5 @@ section {
     top: 40px;
     cursor: pointer;
 }
+
+
