@@ -68,7 +68,7 @@
         <h1 class="heading"> <span>Viagens</span> </h1>
 
         <div class="box-container" id="announcement">
-
+<!-- 
             <div class="box" data-aos="fade-up">
                 <div class="image">
                     <img src="/img/carro 1.jpg" alt="">
@@ -143,8 +143,8 @@
                     <p>Teresina para Picos</p>
                     <div class="date">28/01/2023</div>
                     <a href="#" class="btn"> Acessar</a>
-                </div>
-            </div>
+                </div> -->
+            <!-- </div> -->
         </div>
         <div class="addAnnouncement">
             <i class="fas fa-plus" onclick="showAdd()"></i>
@@ -156,7 +156,9 @@
                    
                     <div class="column-image">
                         <img src="../img/profile-icon.jpg" alt="">
-                        <label>Inserir imagem</label>
+                        <label id="label_image_announcement" for="picture_image" >Inserir imagem</label>
+                        <input type="file" onchange="" accept="image/*" id="picture_image"
+                            class="fas fa-image"></input>
                     </div>
                     <div class="input-account">
                         <label>Link de contato</label>
@@ -165,11 +167,11 @@
                     <div class="column">
                         <div class="input-account">
                             <label>Placa do veículo</label>
-                            <input id="startRoute" type="text" placeholder="AAA0A00">
+                            <input id="licensePlate" type="text" placeholder="AAA0A00">
                         </div>
                         <div class="input-account">
                             <label>Marca do veículo</label>
-                            <input id="endRoute" type="text" placeholder="Honda">
+                            <input id="vehicle" type="text" placeholder="Honda">
                         </div>
                     </div>
                     <div class="column">
@@ -196,8 +198,7 @@
                 <p>Adicionar?</p>
                 <div class="buttons">
                     <button class="no" onclick="closeRemove()">Não</button>
-                    <button class="yes" onclick="closeRemove()">Sim</button>
-                    <!-- addAnnouncement() -->
+                    <button class="yes" onclick="addAnnouncement()">Sim</button>
                 </div>
             </div>
         </div>

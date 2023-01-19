@@ -137,65 +137,69 @@ async function getMyAnnouncements() {
 
 //FALTA TESTAR!
 
-// const licensePlate = document.querySelector("#licensePlate");
-// const socialLink = document.querySelector("#socialLink");
-// const price = document.querySelector("#price");
-// const date = document.querySelector("#date");
-// const vehicle = document.querySelector("#vehicle");
-// const startRoute = document.querySelector("#startRoute");
-// const endRoute = document.querySelector("#endRoute");
-// const image = document.querySelector("#image");
+// const licensePlateInput = document.querySelector("#licensePlate");
+// const socialLinkInput = document.querySelector("#socialLink");
+// const priceInput = document.querySelector("#price");
+// const dateInput = document.querySelector("#date");
+// const vehicleInput = document.querySelector("#vehicle");
+// const startRouteInput = document.querySelector("#startRoute");
+// const endRouteInput = document.querySelector("#endRoute");
+// const imageInput = document.querySelector("#image");
+// const element = document.getElementById("picture_image");
 
 // Chamar api para cadastrar anuncio
-// async function addAnnouncement() {
-//     const licensePlate = licensePlate.value;
-//     const socialLink = socialLink.value;
-//     const price = price.value;
-//     const date = date.value;
-//     const startRoute = startRoute.value;
-//     const endRoute = endRoute.value;
-//     const vehicle = vehicle.value;
+async function addAnnouncement() {
+    // e.preventDefault()
 
-//     try {
+    // const licensePlate = licensePlateInput.value;
+    // const socialLink = socialLinkInput.value;
+    // const price = priceInput.value;
+    // const date = dateInput.value;
+    // const startRoute = startRouteInput.value;
+    // const endRoute = endRouteInput.value;
+    // const vehicle = vehicleInput.value;
 
-//      let data = new FormData();
-//      data.append('image', element.files[0]);
+    try {
 
-//      const response = await fetch(`${baseUrl}announcements`, {
-//         method: 'POST',
-//         headers: {
-//             "content-Type":"application/json",
-//             Accept: "application/json",
-//             "Authorization": window.localStorage.getItem("token"),
-//         },
-//         credentials: "include",
-//         body: JSON.stringify({
-//             vehicle,
-//             licensePlate,
-//             socialLink,
-//             price,
-//             date,
-//             startRoute,
-//             endRoute,
-//             data,
-//         })
-//     });
+        let data = new FormData();
+        data.append('image', element.files[0]);
+        data.append('licensePlate', licensePlateInput.value);
+        data.append('socialLink', socialLinkInput.value);
+        data.append('price', priceInput.value);
+        data.append('date', dateInput.value);
+        data.append('startRoute', startRouteInput.value);
+        data.append('endRoute', endRouteInput.value);
+        data.append('vehicle', vehicleInput.value);
+        data.append('advertiserId', getIdUser());
 
-//     const newAnnouncement = await response.json();
+        const response = await fetch(`${baseUrl}announcement`, {
+            method: 'POST',
+            credentials: "include",
+            body: data,
+            headers: {
+                "Accept": "application/json",
+                // "Authorization": window.localStorage.getItem("token"),
+            },
+        });
 
-//     if(response.status === 201) {
-//         //printar msg de sucesso
-//         alert(newAnnouncement.msg);
-//         //atualizar os anuncios na tela
-//         getMyAnnouncements();
-//     } else {
-//         console.error(`Erro no servidor: ${newAnnouncement}`)
-//     }
-//     } catch (error) {
-//         console.error(error.message);
-//     }
+        data = null;
+
+        const newAnnouncement = await response.json();
+
+        if(response.status === 201) {
+            //printar msg de sucesso
+            alert('Anúncio criado!');
+            //atualizar os anuncios na tela
+            closeRemove();
+            getMyAnnouncements();
+        } else {
+            console.error(`Erro no servidor: ${newAnnouncement}`)
+        }
+    } catch (error) {
+        console.error(error.message);
+    }
    
-// }
+}
 
 //integração da página, criar anuncio - fim
 
