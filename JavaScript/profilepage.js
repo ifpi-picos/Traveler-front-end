@@ -1,3 +1,4 @@
+import validatePassword from './cadastrar';
 const baseUrl = 'https://traveler-yd39.onrender.com/';
 // const baseUrl = 'http://localhost:3003/';
 
@@ -155,10 +156,61 @@ function deleteAcc(email) {
                 }
             }
             )
-    }else{
+    } else {
         alert('Email ou senha inválidos')
     }
 }
+
+const alterButton = document.querySelector(".btn-profile");
+alterButton.onclick = function () {
+    const inputOldPass = document.querySelector("#senha");
+    const inputNewPass = document.querySelector("#novasenha");
+    const inputConfirm = document.querySelector("#confirmar");
+    const oldPass = inputOldPass.value;
+    const newPass = inputNewPass.value;
+    const confirm = inputConfirm.value;
+    validatePassword(newPass);
+    if (confirm != newPass) {
+        alert("As senhas devem ser iguais");
+        return;
+    } else {
+        updatePass(oldPass, newPass);
+    }
+}
+async function updatePass(oldPass, newPass) {
+    try {
+        const idUser = getIdUser()
+        const user = {
+            name: localStorage.getItem("name"),
+            email: localStorage.getItem("email"),
+            password: oldPass,
+            newPassword: newPass
+
+        };
+        const resp = await fetch(`${baseUrl}users/${idUser}`,
+            {
+                method: "PUT",
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json",
+                    "Authorization": localStorage.getItem("token")
+                },
+                body: JSON.stringify(user),
+            }
+        );
+        if (resp.status === 201) {
+            alert("Senha alterada");
+            window.location.href = "/index.html";
+        } else {
+            console.log("erro");
+        }
+    } catch (error) {
+        console.error(error.message);
+    }
+}
+
+
+
 function fillUserData() {
     const userTitle = document.querySelector("#userTitle");
     userTitle.innerHTML = localStorage.getItem("name");

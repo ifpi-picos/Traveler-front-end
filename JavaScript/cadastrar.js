@@ -54,12 +54,7 @@ function validateEmail(email) {
 function hasUpperCase(password) {
   if (/[A-Z]/.test(password)) {
     maiuscula.setAttribute("style", "color:green");
-    return true;function limparCampos() {
-      document.querySelector("#nome").value = "";
-      document.querySelector("#email").value = "";
-      document.querySelector("#senha").value = "";
-      document.querySelector("#confirmarSenha").value = "";
-    }
+    return true;
   } else {
     maiuscula.setAttribute("style", "color:red");
     return false;
@@ -86,7 +81,7 @@ function hasNumber(password) {
   }
 }
 
-function validatePassword(password) {
+export function validatePassword(password) {
   if (hasUpperCase(password) & hasSpecialChar(password) & hasNumber(password)) {
     return true;
   } else {
