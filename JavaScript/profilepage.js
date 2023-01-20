@@ -160,10 +160,10 @@ function deleteAcc(email) {
     }
 }
 
-function validatePass(pass){
-    if(/^(?=.*[A-Z])(?=.*[!@#\$%\^&\*])(?=.*\d)[a-zA-Z0-9!@#\$%\^&\*]{8,}$/.test(pass)){
+function validatePass(pass) {
+    if (/^(?=.*[A-Z])(?=.*[!@#\$%\^&\*])(?=.*\d)[a-zA-Z0-9!@#\$%\^&\*]{8,}$/.test(pass)) {
         return true;
-    }else{
+    } else {
         return false;
     }
 }
@@ -176,12 +176,15 @@ alterButton.onclick = function () {
     const oldPass = inputOldPass.value;
     const newPass = inputNewPass.value;
     const confirm = inputConfirm.value;
-    validatePass(newPass);
-    if (confirm != newPass) {
-        alert("As senhas devem ser iguais");
-        return;
-    } else {
-        updatePass(oldPass, newPass);
+    if (validatePass(newPass)) {
+        if (confirm != newPass) {
+            alert("As senhas devem ser iguais");
+            return;
+        } else {
+            updatePass(oldPass, newPass);
+        }
+    }else{
+        alert('Digite uma senha que cumpra os requisitos');
     }
 }
 async function updatePass(oldPass, newPass) {
@@ -197,12 +200,12 @@ async function updatePass(oldPass, newPass) {
         const resp = await fetch(`${baseUrl}users/${idUser}`,
             {
                 method: "PUT",
+                body: JSON.stringify(user),
                 headers: {
                     "Accept": "application/json",
                     "Content-Type": "application/json",
                     "Authorization": localStorage.getItem("token")
                 },
-                body: JSON.stringify(user),
             }
         );
         if (resp.status === 201) {
