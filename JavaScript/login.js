@@ -22,15 +22,21 @@ senhalogin.addEventListener("keyup", () => {
     }
 });
 function validateEmail(email) {
-    let valemail = /^[\w-\.]+@([\w-]+\.)+[\w-]{3,3}$/g;
+    // let valemail = /^[\w-\.]+@([\w-]+\.)+[\w-]{3,3}$/g;
 
-    return valemail.test(email);
+    // return valemail.test(email);
+    if (email.indexOf("@") === -1) return false;
+
+    return true;
 }
 function validatePassword(Password) {
-    let valpass =
-        /(?=^.{8,}$)((?=.*\d)(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/g;
+    // let valpass =
+    //     /(?=^.{8,}$)((?=.*\d)(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/g;
 
-    return valpass.test(Password);
+    // return valpass.test(Password);
+    if (Password.length < 8 || Password.length > 20 ) return false;
+
+    return true;
 }
 
 function setUserData(userData) {
