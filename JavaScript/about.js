@@ -6,8 +6,6 @@ if (localStorage.getItem('token') == null) {
     window.location.href = `https://traveler-io.netlify.app/`;
 } 
 
-
-
 let navbar = document.querySelector('.navbar')
 
 document.querySelector('#menu-btn').onclick = () => {

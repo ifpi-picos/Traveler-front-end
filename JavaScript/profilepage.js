@@ -155,10 +155,72 @@ function deleteAcc(email) {
                 }
             }
             )
-    }else{
+    } else {
         alert('Email ou senha inválidos')
     }
 }
+
+function validatePass(pass) {
+    if (/^(?=.*[A-Z])(?=.*[!@#\$%\^&\*])(?=.*\d)[a-zA-Z0-9!@#\$%\^&\*]{8,}$/.test(pass)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+const alterButton = document.querySelector(".btn-profile");
+alterButton.onclick = function () {
+    const inputOldPass = document.querySelector("#senha");
+    const inputNewPass = document.querySelector("#novasenha");
+    const inputConfirm = document.querySelector("#confirmar");
+    const oldPass = inputOldPass.value;
+    const newPass = inputNewPass.value;
+    const confirm = inputConfirm.value;
+    if (validatePass(newPass)) {
+        if (confirm != newPass) {
+            alert("As senhas devem ser iguais");
+            return;
+        } else {
+            updatePass(oldPass, newPass);
+        }
+    }else{
+        alert('Digite uma senha que cumpra os requisitos');
+    }
+}
+async function updatePass(oldPass, newPass) {
+    try {
+        const idUser = getIdUser()
+        const user = {
+            name: localStorage.getItem("name"),
+            email: localStorage.getItem("email"),
+            password: oldPass,
+            newPassword: newPass
+
+        };
+        const resp = await fetch(`${baseUrl}users/${idUser}`,
+            {
+                method: "PUT",
+                body: JSON.stringify(user),
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json",
+                    "Authorization": localStorage.getItem("token")
+                },
+            }
+        );
+        if (resp.status === 201) {
+            alert("Senha alterada");
+            window.location.href = "/index.html";
+        } else {
+            console.log("erro");
+        }
+    } catch (error) {
+        console.error(error.message);
+    }
+}
+
+
+
 function fillUserData() {
     const userTitle = document.querySelector("#userTitle");
     userTitle.innerHTML = localStorage.getItem("name");

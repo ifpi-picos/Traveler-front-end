@@ -137,15 +137,15 @@ async function getMyAnnouncements() {
 
 //FALTA TESTAR!
 
-// const licensePlateInput = document.querySelector("#licensePlate");
-// const socialLinkInput = document.querySelector("#socialLink");
-// const priceInput = document.querySelector("#price");
-// const dateInput = document.querySelector("#date");
-// const vehicleInput = document.querySelector("#vehicle");
-// const startRouteInput = document.querySelector("#startRoute");
-// const endRouteInput = document.querySelector("#endRoute");
-// const imageInput = document.querySelector("#image");
-// const element = document.getElementById("picture_image");
+const licensePlateInput = document.querySelector("#licensePlate");
+const socialLinkInput = document.querySelector("#socialLink");
+const priceInput = document.querySelector("#price");
+const dateInput = document.querySelector("#date");
+const vehicleInput = document.querySelector("#vehicle");
+const startRouteInput = document.querySelector("#startRoute");
+const endRouteInput = document.querySelector("#endRoute");
+const imageInput = document.querySelector("#image");
+const element = document.getElementById("picture_image");
 
 // Chamar api para cadastrar anuncio
 async function addAnnouncement() {
@@ -178,7 +178,7 @@ async function addAnnouncement() {
             body: data,
             headers: {
                 "Accept": "application/json",
-                // "Authorization": window.localStorage.getItem("token"),
+                "Authorization": window.localStorage.getItem("token"),
             },
         });
 
