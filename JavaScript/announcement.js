@@ -1,10 +1,10 @@
-const baseUrl = 'https://traveler-yd39.onrender.com/';
-// const baseUrl = 'http://localhost:3003/';
+// const baseUrl = 'https://traveler-yd39.onrender.com/';
+const baseUrl = 'http://localhost:3003/';
 
-if (localStorage.getItem('token') == null) {
-    alert("Você precisa estar logado para ter acesso a esta página.");
-    window.location.href = `https://traveler-io.netlify.app/`;
-}   
+// if (localStorage.getItem('token') == null) {
+//     alert("Você precisa estar logado para ter acesso a esta página.");
+//     window.location.href = `https://traveler-io.netlify.app/`;
+// }   
 
 let navbar = document.querySelector('.navbar')
 
@@ -135,29 +135,28 @@ async function getMyAnnouncements() {
 
 //integração da página, criar anuncio - wesley
 
-//FALTA TESTAR!
-
 const licensePlateInput = document.querySelector("#licensePlate");
 const socialLinkInput = document.querySelector("#socialLink");
 const priceInput = document.querySelector("#price");
 const dateInput = document.querySelector("#date");
 const vehicleInput = document.querySelector("#vehicle");
-const startRouteInput = document.querySelector("#startRoute");
-const endRouteInput = document.querySelector("#endRoute");
+//address
+const startCepInput = document.querySelector("#startCep");
+const startCityInput = document.querySelector("#startCity");
+const startStateInput = document.querySelector("#startState");
+const startStreetInput = document.querySelector("#startStreet");
+const startDistrictInput = document.querySelector("#startDistrict");
+const endCepInput = document.querySelector("#endCep");
+const endCityInput = document.querySelector("#endCity");
+const endStateInput = document.querySelector("#endState");
+const endDistrictInput = document.querySelector("#endDistrict");
+const endStreetInput = document.querySelector("#endStreet");
+
 const imageInput = document.querySelector("#image");
 const element = document.getElementById("picture_image");
 
 // Chamar api para cadastrar anuncio
 async function addAnnouncement() {
-    // e.preventDefault()
-
-    // const licensePlate = licensePlateInput.value;
-    // const socialLink = socialLinkInput.value;
-    // const price = priceInput.value;
-    // const date = dateInput.value;
-    // const startRoute = startRouteInput.value;
-    // const endRoute = endRouteInput.value;
-    // const vehicle = vehicleInput.value;
 
     try {
 
@@ -167,8 +166,19 @@ async function addAnnouncement() {
         data.append('socialLink', socialLinkInput.value);
         data.append('price', priceInput.value);
         data.append('date', dateInput.value);
-        data.append('startRoute', startRouteInput.value);
-        data.append('endRoute', endRouteInput.value);
+        //address
+        data.append('startCep', startCepInput.value);
+        data.append('startCity', startCityInput.value);
+        data.append('startState', startStateInput.value);
+        data.append('startStreet', startStreetInput.value);
+        data.append('startDistrict', startDistrictInput.value);
+        data.append('endCep', endCepInput.value);
+        data.append('endCity', endCityInput.value);
+        data.append('endState', endStateInput.value);
+        data.append('endStreet', endStreetInput.value);
+        data.append('endDistrict', endDistrictInput.value);
+        //addd addressss
+        //PAREI AKIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
         data.append('vehicle', vehicleInput.value);
         data.append('advertiserId', getIdUser());
 
@@ -199,6 +209,10 @@ async function addAnnouncement() {
         console.error(error.message);
     }
    
+}
+
+async function getAddress() {
+
 }
 
 //integração da página, criar anuncio - fim
