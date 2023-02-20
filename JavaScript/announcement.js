@@ -1,10 +1,10 @@
-// const baseUrl = 'https://traveler-yd39.onrender.com/';
-const baseUrl = 'http://localhost:3003/';
+const baseUrl = 'https://traveler-yd39.onrender.com/';
+// const baseUrl = 'http://localhost:3003/';
 
-// if (localStorage.getItem('token') == null) {
-//     alert("Você precisa estar logado para ter acesso a esta página.");
-//     window.location.href = `https://traveler-io.netlify.app/`;
-// }   
+if (localStorage.getItem('token') == null) {
+    alert("Você precisa estar logado para ter acesso a esta página.");
+    window.location.href = `https://traveler-io.netlify.app/`;
+}   
 
 let navbar = document.querySelector('.navbar')
 
@@ -81,11 +81,11 @@ function fillScreen(announcements) {
             <div class="box" data-aos="fade-up">
             <div class="image">
                 <img src=${image} alt="">
-                <h3> <i class="fas fa-map-marker-alt"></i> ${announcement.endRoute} </h3>
+                <h3> <i class="fas fa-map-marker-alt"></i> ${announcement.endCity} </h3>
             </div>
             <div class="content">
                 <div class="price"> ${announcement.price} </div>
-                <p>${announcement.startRoute} para ${announcement.endRoute}</p>
+                <p>${announcement.startCity} para ${announcement.endCity}</p>
                 <div class="date">${date}</div>
                 <a href="#" class="btn"> Acessar</a>
             </div>
@@ -108,8 +108,8 @@ async function getMyAnnouncements() {
     try{
         const userId = getIdUser();
 
-        const endRoute = document.querySelector('#searchBox');
-        const response = await fetch(`${baseUrl}announcement?endRoute=${endRoute.value}&userId=${userId}`,{
+        const endCity = document.querySelector('#searchBox');
+        const response = await fetch(`${baseUrl}announcement?endCity=${endCity.value}&userId=${userId}`,{
             method: "GET",
             headers: {
                 "Accept": "application/json",
@@ -141,16 +141,18 @@ const priceInput = document.querySelector("#price");
 const dateInput = document.querySelector("#date");
 const vehicleInput = document.querySelector("#vehicle");
 //address
-const startCepInput = document.querySelector("#startCep");
+const startZipCodeInput = document.querySelector("#startZipCode");
 const startCityInput = document.querySelector("#startCity");
 const startStateInput = document.querySelector("#startState");
 const startStreetInput = document.querySelector("#startStreet");
 const startDistrictInput = document.querySelector("#startDistrict");
-const endCepInput = document.querySelector("#endCep");
+const startReferencePointInput = document.querySelector("#startReferencePoint");
+const endZipCodeInput = document.querySelector("#endZipCode");
 const endCityInput = document.querySelector("#endCity");
 const endStateInput = document.querySelector("#endState");
 const endDistrictInput = document.querySelector("#endDistrict");
 const endStreetInput = document.querySelector("#endStreet");
+const endReferencePointInput = document.querySelector("#endReferencePoint");
 
 const imageInput = document.querySelector("#image");
 const element = document.getElementById("picture_image");
@@ -167,18 +169,19 @@ async function addAnnouncement() {
         data.append('price', priceInput.value);
         data.append('date', dateInput.value);
         //address
-        data.append('startCep', startCepInput.value);
+        data.append('startZipCode', startZipCodeInput.value);
         data.append('startCity', startCityInput.value);
         data.append('startState', startStateInput.value);
         data.append('startStreet', startStreetInput.value);
         data.append('startDistrict', startDistrictInput.value);
-        data.append('endCep', endCepInput.value);
+        data.append('startReferencePoint', startReferencePointInput.value);
+        data.append('endZipCode', endZipCodeInput.value);
         data.append('endCity', endCityInput.value);
         data.append('endState', endStateInput.value);
         data.append('endStreet', endStreetInput.value);
         data.append('endDistrict', endDistrictInput.value);
+        data.append('endReferencePoint', endReferencePointInput.value);
         //addd addressss
-        //PAREI AKIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
         data.append('vehicle', vehicleInput.value);
         data.append('advertiserId', getIdUser());
 
@@ -211,8 +214,56 @@ async function addAnnouncement() {
    
 }
 
-async function getAddress() {
+//zipCode
+startZipCodeInput.addEventListener("keypress", (e) => onlyNumber(e));
+startZipCodeInput.addEventListener("keyup", (e) => verifyZipCode(e));
+endZipCodeInput.addEventListener("keypress", (e) => onlyNumber(e));
+endZipCodeInput.addEventListener("keyup", (e) => verifyZipCode(e));
 
+function verifyZipCode(e) {
+    const inputValue = e.target.value;
+
+    if (inputValue.length === 8) {
+        alert('1')
+        getAddress(inputValue);
+    }
+}
+
+function onlyNumber(e) {
+
+    const onlyNumbers = /[0-9]/;
+    const key = String.fromCharCode(e.keyCode);
+    
+    if (!onlyNumbers.test(key)) {
+        alert('Preencha o Cep somente com números.');
+        setTimeout(function() {e.target.value = ''}, 500);
+        
+        return;
+    }
+}
+
+async function getAddress(zipCode) {
+    endZipCodeInput.blur();
+    startZipCodeInput.blur();
+
+    const apiUrl = `https://viacep.com.br/ws/${zipCode}/json/`;
+
+    const response = await fetch(apiUrl);
+
+    const data = await response.json();
+
+    if (zipCode === startZipCodeInput.value) {
+        startCityInput.value = data.localidade;
+        startDistrictInput.value = data.bairro;
+        startStateInput.value = data.uf;
+        startStreetInput.value = data.logradouro;
+    } else if (zipCode === endZipCodeInput.value) {
+        endCityInput.value = data.localidade;
+        endDistrictInput.value = data.bairro;
+        endStateInput.value = data.uf;
+        endStreetInput.value = data.logradouro;
+    }
+    
 }
 
 //integração da página, criar anuncio - fim
