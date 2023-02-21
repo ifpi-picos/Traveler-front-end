@@ -11,22 +11,22 @@ if (localStorage.getItem('token') == null) {
 //pegar e filtrar anuncios (integraçao)
 const divAnnouncement = document.querySelector('#announcement');
 const filterDate = document.querySelector('#filterDate');
-const filterEndRoute = document.querySelector('#filterEndRoute');
-const filterStartRoute = document.querySelector('#filterStartRoute');
-const filterOnlyEndRoute = document.querySelector('#searchBox')
+const filterEndCity = document.querySelector('#filterEndCity');
+const filterStartCity = document.querySelector('#filterStartCity');
+const filterOnlyEndCity = document.querySelector('#searchBox')
 
 //pegar e filtrar anuncios (integraçao)
 async function getAnnouncements() {
     try {
         const date = filterDate.value;
-        let endRoute = filterEndRoute.value;
-        const startRoute = filterStartRoute.value;
+        let endCity = filterEndCity.value;
+        const startCity = filterStartCity.value;
 
-        if (!endRoute) {
-            endRoute = filterOnlyEndRoute.value;
+        if (!endCity) {
+            endCity = filterOnlyEndCity.value;
         }
 
-        const response = await fetch(`${baseUrl}announcement?date=${date}&endRoute=${endRoute}&startRoute=${startRoute}`, {
+        const response = await fetch(`${baseUrl}announcement?date=${date}&endCity=${endCity}&startCity=${startCity}`, {
             method: "GET",
             headers: {
                 "Accept": "application/json",
@@ -66,12 +66,12 @@ function fillScreen(announcements) {
             <div class="box" data-aos="fade-up">
                 <div class="image">
                     <img src="${image}" alt="">
-                    <h3> <i class="fas fa-map-marker-alt"></i> ${announcement.endRoute} </h3>
+                    <h3> <i class="fas fa-map-marker-alt"></i> ${announcement.endCity} </h3>
                 </div>
                 <div class="content">
                     <p>Data: ${date}</p>
                     <div class="price"> R$${announcement.price} </div>
-                    <p>${announcement.startRoute} para ${announcement.endRoute}</p>
+                    <p>${announcement.startCity} para ${announcement.endCity}</p>
                     <a href="#" class="btn"> acessar</a>
                 </div>
             </div>
