@@ -82,11 +82,11 @@ function fillScreen(announcements) {
             <div class="box" data-aos="fade-up">
             <div class="image">
                 <img src=${image} alt="">
-                <h3> <i class="fas fa-map-marker-alt"></i> ${announcement.endCity} </h3>
+                <h3> <i class="fas fa-map-marker-alt"></i> ${announcement.destinationAddress.city} </h3>
             </div>
             <div class="content">
                 <div class="price"> ${announcement.price} </div>
-                <p>${announcement.startCity} para ${announcement.endCity}</p>
+                <p>${announcement.originAddress.city} para ${announcement.destinationAddress.city}</p>
                 <div class="date">${date}</div>
                 <a href="#" class="btn"> Acessar</a>
             </div>
