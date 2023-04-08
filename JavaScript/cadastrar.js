@@ -114,7 +114,7 @@ async function cadastrar() {
       }
     );
     if (resp.status === 201) {
-      console.log("certo");
+      alert('Usuário cadastrado com sucesso.')
       limparCampos();
       window.location.href = "/index.html";
     } else {

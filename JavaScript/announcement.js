@@ -67,7 +67,7 @@ const divMyAnnouncements = document.querySelector("#announcement");
 // printar os anúncios na tela
 function fillScreen(announcements) {
     divMyAnnouncements.innerHTML = '';
-    console.log(announcements);
+
     announcements.forEach(announcement => {
         const dateWithoutTime = announcement.date.split("T")[0];
         const smashDate = dateWithoutTime.split('-');
@@ -82,11 +82,11 @@ function fillScreen(announcements) {
             <div class="box" data-aos="fade-up">
             <div class="image">
                 <img src=${image} alt="">
-                <h3> <i class="fas fa-map-marker-alt"></i> ${announcement.destinationAddress.city} </h3>
+                <h3> <i class="fas fa-map-marker-alt"></i> ${announcement.destinationAddress.city}-${announcement.destinationAddress.state} </h3>
             </div>
             <div class="content">
                 <div class="price"> ${announcement.price} </div>
-                <p>${announcement.originAddress.city} para ${announcement.destinationAddress.city}</p>
+                <p>${announcement.originAddress.city}-${announcement.originAddress.state} para ${announcement.destinationAddress.city}-${announcement.destinationAddress.state}</p>
                 <div class="date">${date}</div>
                 <a href="#" class="btn"> Acessar</a>
             </div>
