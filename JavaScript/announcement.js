@@ -1,10 +1,10 @@
 const baseUrl = 'https://traveler-yd39.onrender.com/';
 // const baseUrl = 'http://localhost:3003/';
 
-if (localStorage.getItem('token') == null) {
-    alert("Você precisa estar logado para ter acesso a esta página.");
-    window.location.href = `https://traveler-io.netlify.app/`;
-}   
+// if (localStorage.getItem('token') == null) {
+//     alert("Você precisa estar logado para ter acesso a esta página.");
+//     window.location.href = `https://traveler-io.netlify.app/`;
+// }   
 
 let navbar = document.querySelector('.navbar')
 
@@ -67,6 +67,7 @@ const divMyAnnouncements = document.querySelector("#announcement");
 // printar os anúncios na tela
 function fillScreen(announcements) {
     divMyAnnouncements.innerHTML = '';
+    console.log(announcements);
     announcements.forEach(announcement => {
         const dateWithoutTime = announcement.date.split("T")[0];
         const smashDate = dateWithoutTime.split('-');
@@ -81,7 +82,7 @@ function fillScreen(announcements) {
             <div class="box" data-aos="fade-up">
             <div class="image">
                 <img src=${image} alt="">
-                <h3> <i class="fas fa-map-marker-alt"></i> ${announcement.endCity} </h3>
+                <h3> <i class="fas fa-map-marker-alt"></i> ${announcement.address.endCity} </h3>
             </div>
             <div class="content">
                 <div class="price"> ${announcement.price} </div>
