@@ -61,19 +61,19 @@ async function init() {
 
     const errorHandler = () => {
         submitBuutton.classList.remove("success")
-        submitBuutton.classList.add("error")
-        submitBuutton.textContent = "error"
+        submitBuutton.classList.add("dados inválidos")
+        submitBuutton.textContent = "dados inválidos"
     }
 
     const successHandler = () => {
         submitBuutton.classList.remove("error")
-        submitBuutton.classList.add("success")
-        submitBuutton.textContent = "sent!"
+        submitBuutton.classList.add("successo")
+        submitBuutton.textContent = "logado"
     }
     if (submitBuutton) {
         submitBuutton.addEventListener("click", async (event) => {
             if (validatePassword(senhalogin.value) === true && validateEmail(EmailLogin.value) === true) {
-                submitBuutton.textContent = "...Loading"
+                submitBuutton.textContent = "Carregando..."
                 // event.preventDefault()
 
                 await fetch(`${baseUrl}authentication/login`, {
