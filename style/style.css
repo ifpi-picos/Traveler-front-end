@@ -1125,6 +1125,7 @@ section {
     right: 50px;
     text-align: center;
     display: inline-block;
+    /* overflow: scroll; */
 }
 
 .addAnnouncement i {
@@ -1160,23 +1161,29 @@ section {
 
 .addAnnouncement:hover .tooltipe {
     visibility: visible;
+
 }
 
 .show-create {
     opacity: 1;
     visibility: visible;
     transform: scale(1.0);
+    overflow: scroll;
+    padding-top: 6rem;
 }
 
 
 #formCreate .formAdd {
     background-color: var(--bg-color-1);
     padding: 16px 24px;
+    /* padding-top: 4rem; */
     width: 700px;
     /* height: 90vh; */
     border-radius: 0.5rem;
-    padding-top: 10rem;
+    padding-top: 20rem;
+    overflow: scroll;
 }
+
 
 
 

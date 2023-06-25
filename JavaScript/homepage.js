@@ -1,11 +1,11 @@
-const baseUrl = 'https://traveler-yd39.onrender.com/';
-// const baseUrl = 'http://localhost:3003/';
+// const baseUrl = 'https://traveler-yd39.onrender.com/';
+const baseUrl = 'http://localhost:3003/';
 
 
-if (localStorage.getItem('token') == null) {
-    alert("Você precisa estar logado para ter acesso a esta página.");
-    window.location.href = `https://traveler-io.netlify.app/`;
-}
+// if (localStorage.getItem('token') == null) {
+//     alert("Você precisa estar logado para ter acesso a esta página.");
+//     window.location.href = `https://traveler-io.netlify.app/`;
+// }
 
 
 //pegar e filtrar anuncios (integraçao)
@@ -14,6 +14,15 @@ const filterDate = document.querySelector('#filterDate');
 const filterEndCity = document.querySelector('#filterEndCity');
 const filterStartCity = document.querySelector('#filterStartCity');
 const filterOnlyEndCity = document.querySelector('#searchBox')
+
+function showAdd() {
+    var element = document.getElementById("formCreate");
+    element.classList.add("show-create");
+}
+function closeRemove() {
+    var element = document.getElementById("formCreate");
+    element.classList.remove("show-create");
+} 
 
 //pegar e filtrar anuncios (integraçao)
 async function getAnnouncements() {
