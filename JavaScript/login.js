@@ -1,5 +1,5 @@
-// const baseUrl = 'https://traveler-yd39.onrender.com/';
-const baseUrl = 'http://localhost:3003/';
+const baseUrl = 'https://traveler-yd39.onrender.com/';
+// const baseUrl = 'http://localhost:3003/';
 
 let EmailLogin = document.querySelector("#EmailLogin")
 let labelEmailLogin = document.querySelector("#labelEmailLogin")

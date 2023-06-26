@@ -1,11 +1,11 @@
-// const baseUrl = 'https://traveler-yd39.onrender.com/';
-const baseUrl = 'http://localhost:3003/';
+const baseUrl = 'https://traveler-yd39.onrender.com/';
+// const baseUrl = 'http://localhost:3003/';
 
 
-// if (localStorage.getItem('token') == null) {
-//     alert("Você precisa estar logado para ter acesso a esta página.");
-//     window.location.href = `https://traveler-io.netlify.app/`;
-// }
+if (localStorage.getItem('token') == null) {
+    alert("Você precisa estar logado para ter acesso a esta página.");
+    window.location.href = `https://traveler-io.netlify.app/`;
+}
 
 
 //pegar e filtrar anuncios (integraçao)
