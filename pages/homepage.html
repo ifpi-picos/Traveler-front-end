@@ -192,11 +192,41 @@
             
                 <div class="formAdd">
                     <form action="" class="form-announcement">
+                   
+                        <div class="column-image">
+                            <img src="../img/profile-icon.jpg" alt="">
+                            <label id="label_image_announcement" for="picture_image" >Inserir imagem</label>
+                            <input type="file" onchange="" accept="image/*" id="picture_image"
+                                class="fas fa-image" required></input>
+                        </div>
+                        <div class="input-account">
+                            <label>Link de contato</label>
+                            <input id="socialLink" type="text" placeholder="Whatsapp: (99) 99999-9999" required>
+                        </div>
+                        <div class="column">
+                            <div class="input-account">
+                                <label>Placa do veículo</label>
+                                <input id="licensePlate" type="text" placeholder="AAA0A00" required>
+                            </div>
+                            <div class="input-account">
+                                <label>Marca do veículo</label>
+                                <input id="vehicle" type="text" placeholder="Honda" required>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="input-account">
+                                <label>Valor</label>
+                                <input id="price" type="text" placeholder="Valor" required>
+                            </div>
+                            <div class="input-account">
+                                <label>Data</label>
+                                <input id="date" type="text" placeholder="Data" required>
+                            </div>
+                        </div>
                         <div class="column">
                             <div class="input-account">
                                 <label>Cep do local de saída da viagem</label>
-                                <input id="startZipCode" type="text" placeholder="Cep origem" minlength="8"
-                                    maxlength="8" disabled>
+                                <input id="startZipCode" type="text" placeholder="Cep origem" minlength="8" maxlength="8" required>
                             </div>
                         </div>
                         <div class="column">
@@ -221,26 +251,14 @@
                         </div>
                         <div class="column">
                             <div class="input-account">
-                                <label for="hora-partida">Hora de Partida</label>
-                                <input type="time" id="hora-partida" name="hora-partida" disabled>
-                            </div>
-                            <div class="input-account">
-                                <label for="hora-chegada">Hora de Chegada</label>
-                                <input type="time" id="hora-chegada" name="hora-chegada" disabled>
-                            </div>
-                        </div>
-
-                        <div class="column">
-                            <div class="input-account">
                                 <label>Informe um ponto de referência (Campo não obrigatório)</label>
-                                <input id="startReferencePoint" placeholder="Próximo à(o)..." disabled>
+                                <input id="startReferencePoint" placeholder="Próximo à(o)...">
                             </div>
                         </div>
                         <div class="column">
                             <div class="input-account">
                                 <label>Cep do local de chegada da viagem</label>
-                                <input id="endZipCode" type="text" placeholder="Cep destino" minlength="8" maxlength="8"
-                                    disabled>
+                                <input id="endZipCode" type="text" placeholder="Cep destino" minlength="8" maxlength="8" required>
                             </div>
                         </div>
                         <div class="column">

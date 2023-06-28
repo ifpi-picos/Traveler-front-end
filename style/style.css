@@ -1232,6 +1232,10 @@ section {
     list-style-position: outside;
 }
 
+.form-announcement{
+    padding-top: 70rem;
+}
+
 
 .form-announcement .input-account {
     width: 100%;
