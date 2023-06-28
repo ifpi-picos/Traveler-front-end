@@ -326,6 +326,7 @@ async function addAnnouncement() {
    
 }
 
+// ALESSANDRO ESTA QUEBRANDO AKI POIS O startZipCodeInput... SO TEM QUANDO OS DADOS DO BACK-END CHEGA
 //zipCode
 startZipCodeInput.addEventListener("keypress", (e) => onlyNumber(e));
 startZipCodeInput.addEventListener("keyup", (e) => verifyZipCode(e));
