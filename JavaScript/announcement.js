@@ -1,5 +1,5 @@
-// const baseUrl = 'https://traveler-yd39.onrender.com/';
-const baseUrl = 'http://localhost:3003/';
+const baseUrl = 'https://traveler-yd39.onrender.com/';
+// const baseUrl = 'http://localhost:3003/';
 
 // if (localStorage.getItem('token') == null) {
 //     alert("Você precisa estar logado para ter acesso a esta página.");
@@ -95,9 +95,115 @@ function fillScreen(announcements) {
         divMyAnnouncements.innerHTML = divMyAnnouncements.innerHTML + newAnnouncementHtml;
     });
     divMyAnnouncements.innerHTML = divMyAnnouncements.innerHTML + `<div class="addAnnouncement">
-    <i class="fas fa-plus" onclick=showAdd()></i>
+    <i class="fas fa-plus" onclick="showAdd()"></i>
     <span class="tooltipe">Solicitar viagem?</span>
-</div>`;
+</div>
+<div class="delete" id="formCreate">
+    <div class="formAdd">
+        <form action="" class="form-announcement">
+           
+            <div class="column-image">
+                <img src="../img/profile-icon.jpg" alt="">
+                <label id="label_image_announcement" for="picture_image" >Inserir imagem</label>
+                <input type="file" onchange="" accept="image/*" id="picture_image"
+                    class="fas fa-image" required></input>
+            </div>
+            <div class="input-account">
+                <label>Link de contato</label>
+                <input id="socialLink" type="text" placeholder="Whatsapp: (99) 99999-9999" required>
+            </div>
+            <div class="column">
+                <div class="input-account">
+                    <label>Placa do veículo</label>
+                    <input id="licensePlate" type="text" placeholder="AAA0A00" required>
+                </div>
+                <div class="input-account">
+                    <label>Marca do veículo</label>
+                    <input id="vehicle" type="text" placeholder="Honda" required>
+                </div>
+            </div>
+            <div class="column">
+                <div class="input-account">
+                    <label>Valor</label>
+                    <input id="price" type="text" placeholder="Valor" required>
+                </div>
+                <div class="input-account">
+                    <label>Data</label>
+                    <input id="date" type="text" placeholder="Data" required>
+                </div>
+            </div>
+            <div class="column">
+                <div class="input-account">
+                    <label>Cep do local de saída da viagem</label>
+                    <input id="startZipCode" type="text" placeholder="Cep origem" minlength="8" maxlength="8" required>
+                </div>
+            </div>
+            <div class="column">
+                <div class="input-account">
+                    <label>Cidade de origem</label>
+                    <input id="startCity" placeholder="Cidade origem" disabled>
+                </div>
+                <div class="input-account">
+                    <label>Estado de origem</label>
+                    <input id="startState" placeholder="Estado origem" disabled>
+                </div>
+            </div>
+            <div class="column">
+                <div class="input-account">
+                    <label>Rua de origem</label>
+                    <input id="startStreet" placeholder="Rua origem" disabled>
+                </div>
+                <div class="input-account">
+                    <label>Bairro de origem</label>
+                    <input id="startDistrict" placeholder="Bairro origem" disabled>
+                </div>
+            </div>
+            <div class="column">
+                <div class="input-account">
+                    <label>Informe um ponto de referência (Campo não obrigatório)</label>
+                    <input id="startReferencePoint" placeholder="Próximo à(o)...">
+                </div>
+            </div>
+            <div class="column">
+                <div class="input-account">
+                    <label>Cep do local de chegada da viagem</label>
+                    <input id="endZipCode" type="text" placeholder="Cep destino" minlength="8" maxlength="8" required>
+                </div>
+            </div>
+            <div class="column">
+                <div class="input-account">
+                    <label>Cidade de destino</label>
+                    <input id="endCity" placeholder="Cidade destino" disabled>
+                </div>
+                <div class="input-account">
+                    <label>Estado de destino</label>
+                    <input id="endState" placeholder="Estado destino" disabled>
+                </div>
+            </div>
+            <div class="column">
+                <div class="input-account">
+                    <label>Rua de destino</label>
+                    <input id="endStreet" placeholder="Rua destino" disabled>
+                </div>
+                <div class="input-account">
+                    <label>Bairro de destino</label>
+                    <input id="endDistrict" placeholder="Bairro destino" disabled>
+                </div>
+            </div>
+            <div class="column">
+                <div class="input-account">
+                    <label>Informe um ponto de referência (Campo não obrigatório)</label>
+                    <input id="endReferencePoint" placeholder="Próximo à(o)...">
+                </div>
+            </div>
+        </form>
+        <p>Adicionar?</p>
+        <div class="buttons">
+            <button class="no" onclick="closeRemove()">Não</button>
+            <button class="yes" onclick="addAnnouncement()">Sim</button>
+        </div>
+    </div>
+</div>`
     
 }
 
