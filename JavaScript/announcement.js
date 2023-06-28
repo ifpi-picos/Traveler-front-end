@@ -94,6 +94,7 @@ function fillScreen(announcements) {
         `
         divMyAnnouncements.innerHTML = divMyAnnouncements.innerHTML + newAnnouncementHtml;
     });
+    showAdd();
 }
 
 // id do usuário
