@@ -95,7 +95,7 @@ function fillScreen(announcements) {
         divMyAnnouncements.innerHTML = divMyAnnouncements.innerHTML + newAnnouncementHtml;
     });
     divMyAnnouncements.innerHTML = divMyAnnouncements.innerHTML + `<div class="addAnnouncement">
-    <i class="fas fa-plus" onclick="showAdd()"></i>
+    <i class="fas fa-plus" ${onclick=showAdd()}></i>
     <span class="tooltipe">Solicitar viagem?</span>
 </div>`;
     
